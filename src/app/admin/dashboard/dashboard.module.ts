@@ -11,6 +11,11 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HomeComponent } from './home/home.component';
 import { StatComponent } from './stat/stat.component';
 import { Courgroupes } from './courgroupes/courgroupes.component';
+import { Teachers } from './teachers/teachers.component';
+import { MyGroupCourses } from './myGroupCourses/myGroupCourses.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -21,8 +26,8 @@ import { Courgroupes } from './courgroupes/courgroupes.component';
     MatCardModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule
   ],
-  declarations: [HomeComponent,Courgroupes, StatComponent]
+  declarations: [HomeComponent,Courgroupes,MyGroupCourses,Teachers, StatComponent]
 })
 export class DashboardModule {}

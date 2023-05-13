@@ -9,18 +9,15 @@ interface Place {
 }
 
 @Component({
-  selector: 'app-courgroupes',
-  templateUrl: './courgroupes.component.html',
-  styleUrls: ['./courgroupes.component.scss']
+  selector: 'app-myGroupCourses',
+  templateUrl: './myGroupCourses.component.html',
+  styleUrls: ['./myGroupCourses.component.scss']
 })
-export class Courgroupes implements OnInit {
-  courgroupes: Array<Place> = [];
-  selected = 'option2';
-  selectedLanguage: string = 'option1';
-
+export class MyGroupCourses implements OnInit {
+  mygroupcours: Array<Place> = [];
   constructor() {}
   ngOnInit() {
-    this.courgroupes = [
+    this.mygroupcours = [
       {
         imgSrc: 'assets/images/card-1.jpg',
         name: 'Cozy 5 Stars Apartment',
@@ -46,6 +43,6 @@ export class Courgroupes implements OnInit {
         location: 'Milan, Italy'
       }
     ];
-    console.log( this.courgroupes )
+    console.log( this.mygroupcours )
   }
 }

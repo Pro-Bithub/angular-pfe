@@ -1,21 +1,46 @@
 
 <div class="mt20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayout.lt-md="column" fxLayoutGap="20px">
+  <div class="row">
+    <div class="col col-12">
+      <mat-form-field>
+        <mat-label>Langue</mat-label>
+        <mat-select [(ngModel)]="selectedLanguage">
+          <mat-option value="option1">Anglais</mat-option>
+          <mat-option value="option2">Français</mat-option>
+          <mat-option value="option3">Allemand</mat-option>
+          <mat-option value="option4">Italien</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option>None</mat-option>
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col col-lg-12">
+      <mat-card fxFlex *ngFor="let item of courgroupes">
+        <img mat-card-image [src]="item.imgSrc">
+        <mat-card-header style="justify-content: center">
+          <mat-card-title>
+            <h3 class="m-0">{{item.name}}</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          {{item.description}}
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>{{item.charge}}</button>
+          <button mat-button>
+            <mat-icon class="location-icon">location_on</mat-icon> {{item.location}}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 
-  <mat-card fxFlex *ngFor="let item of places">
-    <img mat-card-image [src]="item.imgSrc">
-    <mat-card-header style="justify-content: center">
-      <mat-card-title>
-        <h3 class="m-0">{{item.name}}</h3>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      {{item.description}}
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>{{item.charge}}</button>
-      <button mat-button>
-        <mat-icon class="location-icon">location_on</mat-icon> {{item.location}}
-      </button>
-    </mat-card-actions>
-  </mat-card>
+
 </div>
