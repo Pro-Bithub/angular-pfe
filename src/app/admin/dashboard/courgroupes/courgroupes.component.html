@@ -1,3 +1,4 @@
+<div class="container">
 
 <div class="mt20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayout.lt-md="column" fxLayoutGap="20px">
   <div class="row">
@@ -11,36 +12,78 @@
           <mat-option value="option4">Italien</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Select an option</mat-label>
-        <mat-select [(value)]="selected">
-          <mat-option>None</mat-option>
-          <mat-option value="option1">Option 1</mat-option>
-          <mat-option value="option2">Option 2</mat-option>
-          <mat-option value="option3">Option 3</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <mat-form-field>
+      <mat-label>Tous les niveaux</mat-label>
+      <mat-select [(ngModel)]="selectedniveaux">
+        <mat-option value="option1">A1 : Débutant</mat-option>
+        <mat-option value="option2">A2 : Intermédiaire</mat-option>
+        <mat-option value="option3">B1 : Avancé</mat-option>
+        <mat-option value="option4">B2 : Intermédiaire avancé</mat-option>
+        <mat-option value="option5">C1 : Avancé</mat-option>
+        <mat-option value="option6">C2 : Maîtrise</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Jour</mat-label>
+      <mat-select [(ngModel)]="selectedjour">
+        <mat-option value="option1">Lundi</mat-option>
+        <mat-option value="option2">Mardi</mat-option>
+        <mat-option value="option3">Mercredi</mat-option>
+        <mat-option value="option4">Jeudi</mat-option>
+        <mat-option value="option5">Vendredi</mat-option>
+        <mat-option value="option6">Samedi</mat-option>
+        <mat-option value="option6">Dimanche</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Heure</mat-label>
+      <mat-select [(ngModel)]="selectedheure">
+        <mat-option value="option1">Matinée</mat-option>
+        <mat-option value="option2">Après-midi</mat-option>
+        <mat-option value="option3">Soirée</mat-option>
+   
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-card>
+      <mat-card-content>Découvrez le cours qui vous convient
+      </mat-card-content>
+    </mat-card>
     </div>
     <div class="col col-lg-12">
-      <mat-card fxFlex *ngFor="let item of courgroupes">
+      <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page" #paginator>
+      </mat-paginator>
+    </div>
+    <div class="col col-lg-12">
+      <mat-card fxFlex  *ngFor="let item of courgroupes"  class="small-card">
         <img mat-card-image [src]="item.imgSrc">
-        <mat-card-header style="justify-content: center">
-          <mat-card-title>
-            <h3 class="m-0">{{item.name}}</h3>
-          </mat-card-title>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+      
+          <mat-card-subtitle>      {{item.description}}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-          {{item.description}}
+        
+    
+        <mat-card-content >
+          <h5> {{item.name}}</h5>
+          <p>{{item.date}} </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>{{item.charge}}</button>
-          <button mat-button>
-            <mat-icon class="location-icon">location_on</mat-icon> {{item.location}}
+          <button mat-button>{{item.prix}}</button>
+          <button mat-button >
+            <span *ngIf="item.nbplacsrestantes >= 10">Soyez le premier ou la première !</span>
+            <span *ngIf="item.nbplacsrestantes >= 3 && item.nbplacsrestantes < 10">Plus que {{item.nbplacsrestantes}} places</span>
+            <span *ngIf="item.nbplacsrestantes >= 1 && item.nbplacsrestantes < 3">Plus que {{item.nbplacsrestantes}} place</span>
+            <span *ngIf="item.nbplacsrestantes === 0">Complet</span>
           </button>
         </mat-card-actions>
       </mat-card>
+ 
     </div>
+
+    
   </div>
 
 
+</div>
 </div>

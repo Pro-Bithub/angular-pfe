@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 
 interface Place {
   imgSrc: string;
   name: string;
   description: string;
-  charge: string;
+  prix: string;
   location: string;
+  date: string;
+  nbplacsrestantes: string;
 }
 
 @Component({
@@ -14,36 +17,44 @@ interface Place {
   styleUrls: ['./courgroupes.component.scss']
 })
 export class Courgroupes implements OnInit {
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
   courgroupes: Array<Place> = [];
   selected = 'option2';
   selectedLanguage: string = 'option1';
-
+  selectedniveaux: string = 'option1';
+  selectedjour: string = 'option1';
+  selectedheure: string = 'option1';
+  value = 'Clear me';
   constructor() {}
   ngOnInit() {
     this.courgroupes = [
       {
         imgSrc: 'assets/images/card-1.jpg',
         name: 'Cozy 5 Stars Apartment',
-        description: `The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio"
-              where you can enjoy the main night life in Barcelona.`,
-        charge: '$899/night',
-        location: 'Barcelona, Spain'
+        description: `Cours collectif avec Rosalind Dott`,
+        prix: '$899',
+        location: 'Barcelona, Spain',
+       date: '07:00 - 08:00 lundi, 15 mai 2023',
+       nbplacsrestantes:'5'
       },
       {
         imgSrc: 'assets/images/card-2.jpg',
-        name: 'Office Studio',
-        description: `The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio"
-              where you can enjoy the night life in London, UK.`,
-        charge: '$1,119/night',
-        location: 'London, UK'
+        name: 'Cozy 5 Stars Apartment',
+        description: `Cours collectif avec Rosalind Dott`,
+        prix: '$899',
+        location: 'Barcelona, Spain',
+       date: '07:00 - 08:00 lundi, 15 mai 2023',
+        nbplacsrestantes:'3'
       },
       {
         imgSrc: 'assets/images/card-3.jpg',
-        name: 'Beautiful Castle',
-        description: `The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio"
-              where you can enjoy the main night life in Milan.`,
-        charge: '$459/night',
-        location: 'Milan, Italy'
+        name: 'Cozy 5 Stars Apartment',
+        description: `Cours collectif avec Rosalind Dott`,
+        prix: '$899',
+        location: 'Barcelona, Spain',
+       date: '07:00 - 08:00 lundi, 15 mai 2023',
+        nbplacsrestantes:'10'
       }
     ];
     console.log( this.courgroupes )

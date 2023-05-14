@@ -16,6 +16,7 @@ import { MyGroupCourses } from './myGroupCourses/myGroupCourses.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     MatCardModule,
     MatTableModule,
-    MatButtonModule,
+    MatButtonModule,MatPaginatorModule,
     MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule
   ],
   declarations: [HomeComponent,Courgroupes,MyGroupCourses,Teachers, StatComponent]
