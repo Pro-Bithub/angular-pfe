@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 interface Place {
   imgSrc: string;
   name: string;
-  description: string;
+  nameuser: string;
   prix: string;
   location: string;
   date: string;
@@ -32,8 +32,8 @@ export class Courgroupes implements OnInit {
       {
         imgSrc: 'assets/images/card-1.jpg',
         name: 'Cozy 5 Stars Apartment',
-        description: `Cours collectif avec Rosalind Dott`,
-        prix: '$899',
+        nameuser: `Rosalind Dott`,
+        prix: '899',
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
        nbplacsrestantes:'5'
@@ -41,8 +41,8 @@ export class Courgroupes implements OnInit {
       {
         imgSrc: 'assets/images/card-2.jpg',
         name: 'Cozy 5 Stars Apartment',
-        description: `Cours collectif avec Rosalind Dott`,
-        prix: '$899',
+        nameuser: `Rosalind Dott`,
+        prix: '899',
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
         nbplacsrestantes:'3'
@@ -50,8 +50,8 @@ export class Courgroupes implements OnInit {
       {
         imgSrc: 'assets/images/card-3.jpg',
         name: 'Cozy 5 Stars Apartment',
-        description: `Cours collectif avec Rosalind Dott`,
-        prix: '$899',
+        nameuser: `Rosalind Dott`,
+        prix: '899',
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
         nbplacsrestantes:'10'

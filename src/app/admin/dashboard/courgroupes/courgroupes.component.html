@@ -55,25 +55,34 @@
       </mat-paginator>
     </div>
     <div class="col col-lg-12">
+
+      
       <mat-card fxFlex  *ngFor="let item of courgroupes"  class="small-card">
         <img mat-card-image [src]="item.imgSrc">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
       
-          <mat-card-subtitle>      {{item.description}}</mat-card-subtitle>
+          <mat-card-subtitle>  Cours collectif avec  {{item.nameuser}}</mat-card-subtitle>
         </mat-card-header>
         
     
         <mat-card-content >
-          <h5> {{item.name}}</h5>
+          <strong> {{item.name}}</strong>
           <p>{{item.date}} </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>{{item.prix}}</button>
+          <button mat-button><h5> USD {{item.prix}}</h5></button>
           <button mat-button >
-            <span *ngIf="item.nbplacsrestantes >= 10">Soyez le premier ou la première !</span>
-            <span *ngIf="item.nbplacsrestantes >= 3 && item.nbplacsrestantes < 10">Plus que {{item.nbplacsrestantes}} places</span>
-            <span *ngIf="item.nbplacsrestantes >= 1 && item.nbplacsrestantes < 3">Plus que {{item.nbplacsrestantes}} place</span>
+            <mat-chip
+            class="example-box"
+            cdkDrag
+            >
+          </mat-chip>
+            <span *ngIf="item.nbplacsrestantes >= 10" class="text-info">Soyez le premier ou la première !</span>
+            <span *ngIf="item.nbplacsrestantes >= 3 && item.nbplacsrestantes < 10"> <img class=" " src="../../../../assets/images/groupclass_flame.svg" alt="" style="width: 12px; height: 12px;"> Plus que {{item.nbplacsrestantes}} places</span>
+            <span *ngIf="item.nbplacsrestantes >= 1 && item.nbplacsrestantes < 3">
+              
+              <img class=" " src="../../../../assets/images/groupclass_flame.svg" alt="" style="width: 12px; height: 12px;"> Plus que {{item.nbplacsrestantes}} place</span>
             <span *ngIf="item.nbplacsrestantes === 0">Complet</span>
           </button>
         </mat-card-actions>
