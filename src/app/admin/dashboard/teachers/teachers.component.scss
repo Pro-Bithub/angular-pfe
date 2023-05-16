@@ -69,3 +69,106 @@
 .custom-form-field {
   padding: 4px 24px;
 }
+.styles_TimetableWrapper{
+  border-top: 1px solid #e3e5e6;
+  flex: 1 1;
+  margin: 0 -32px -32px;
+  max-height: 340px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 16px 24px 32px;
+}
+.styles_Timetable{
+  height: 100%;
+  position: relative;
+}
+
+.styles_TimetableHeadSentinel{
+  height: 1px;
+  margin-top: -1px;
+  position: relative;
+  top: 1px;
+  width: 100%;
+  z-index: 1;
+}
+.styles_TimetableHead{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 16px;
+  justify-content: space-between;
+  margin: 0;
+  position: relative;
+}
+.styles_TimetableHeadSwitcher{
+  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    width: 100%;
+
+}
+.styles_TimetableHeaderTextContainer{
+  align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.styles_DaysHead{
+  display: flex;
+  width: 100%;
+}
+.styles_Day{
+  align-self: flex-start;
+    flex: 1 0;
+    padding: 0;
+    text-align: center;
+}
+.styles_DayName{
+  border-top: 4px solid #25216a;
+}
+.styles_DayHead{
+  align-items: center;
+    color: #384047;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 16px 0;
+}
+.styles_DayDate{
+  align-items: center;
+    display: flex;
+    font-weight: 500;
+    height: 24px;
+    justify-content: center;
+    width: 24px;
+}
+.styles_Calendar{
+  display: flex;
+    justify-content: space-around;
+}
+.styles_TimeSlot{
+  background: 0 0;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #c5cbd2;
+    flex: 1 1;
+    line-height: 1;
+    padding: 8px 0;
+    pointer-events: none;
+    text-align: center;
+    transition: color 50ms,background 50ms;
+}
+.styles_TimeSlotAvailable{
+  color: #3bb3bd;
+    cursor: pointer;
+    font-weight: 500;
+    pointer-events: all;
+    transition: border-color .15s;
+}
+.styles_TimeSlotAvailable:hover {
+  background: 0 0;
+  border-color: #3bb3bd;
+  color: #3bb3bd;
+}

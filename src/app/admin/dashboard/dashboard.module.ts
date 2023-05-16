@@ -11,13 +11,14 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HomeComponent } from './home/home.component';
 import { StatComponent } from './stat/stat.component';
 import { Courgroupes } from './courgroupes/courgroupes.component';
-import { Teachers } from './teachers/teachers.component';
+import { DialogContentExampleDialog, Teachers } from './teachers/teachers.component';
 import { MyGroupCourses } from './myGroupCourses/myGroupCourses.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -28,8 +29,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatCardModule,
     MatTableModule,
     MatButtonModule,MatPaginatorModule,MatChipsModule,
-    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule
+    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule
   ],
-  declarations: [HomeComponent,Courgroupes,MyGroupCourses,Teachers, StatComponent]
+  declarations: [HomeComponent,Courgroupes,MyGroupCourses,Teachers,DialogContentExampleDialog, StatComponent]
 })
 export class DashboardModule {}

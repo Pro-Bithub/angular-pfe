@@ -1,4 +1,5 @@
 import { Component, OnInit , ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 
 interface Place {
@@ -138,7 +139,7 @@ export class Teachers implements OnInit {
   ];
 
   value = 'Clear me';
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
   ngOnInit() {
     this.teachers = [
       {
@@ -174,4 +175,17 @@ export class Teachers implements OnInit {
     ];
     console.log( this.teachers )
   }
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'dialog-content.html',
+  styleUrls: ['./teachers.component.scss']
+})
+export class DialogContentExampleDialog {}

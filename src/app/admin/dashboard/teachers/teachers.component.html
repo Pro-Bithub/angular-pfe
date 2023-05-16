@@ -1,9 +1,14 @@
 <div class="container">
-
-  <div class="mt20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayout.lt-md="column" fxLayoutGap="20px">
+  <div
+    class="mt20"
+    fxLayout="row"
+    fxLayoutAlign="space-between stretch"
+    fxLayout.lt-md="column"
+    fxLayoutGap="20px"
+  >
     <div class="row">
       <div class="col col-12">
-        <mat-form-field  class="custom-form-field">
+        <mat-form-field class="custom-form-field">
           <mat-label>Langue</mat-label>
           <mat-select [(ngModel)]="selectedLanguage">
             <mat-option>-- None --</mat-option>
@@ -13,97 +18,130 @@
             <mat-option value="option4">Italien</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field   class="custom-form-field">
+        <mat-form-field class="custom-form-field">
           <mat-label>Catégorie de leçon</mat-label>
           <mat-select [(ngModel)]="selectedCategorie" multiple>
             <mat-option>-- None --</mat-option>
-            <mat-optgroup *ngFor="let group of categorieGroup" [label]="group.name"
-                          [disabled]="group.disabled">
-              <mat-option *ngFor="let categorie of group.categorie" [value]="categorie.value">
-                {{categorie.viewValue}}
+            <mat-optgroup
+              *ngFor="let group of categorieGroup"
+              [label]="group.name"
+              [disabled]="group.disabled"
+            >
+              <mat-option
+                *ngFor="let categorie of group.categorie"
+                [value]="categorie.value"
+              >
+                {{ categorie.viewValue }}
               </mat-option>
             </mat-optgroup>
           </mat-select>
         </mat-form-field>
-        <mat-form-field class="custom-form-field" >
+        <mat-form-field class="custom-form-field">
           <mat-label>Heure de la leçon</mat-label>
           <mat-select [(ngModel)]="selectedHeuredelalecon" multiple>
             <mat-option>-- None --</mat-option>
-            <mat-optgroup *ngFor="let time of timeGroup" [label]="time.name"
-                          [disabled]="time.disabled">
+            <mat-optgroup
+              *ngFor="let time of timeGroup"
+              [label]="time.name"
+              [disabled]="time.disabled"
+            >
               <mat-option *ngFor="let times of time.time" [value]="time.value">
-                {{times.viewValue}}
+                {{ times.viewValue }}
               </mat-option>
             </mat-optgroup>
           </mat-select>
         </mat-form-field>
-      
+
         <mat-form-field class="custom-form-field">
           <mat-label>Types de professeurs </mat-label>
-         
+
           <mat-select [(ngModel)]="selectedTypesdeprofesseurs">
-        
             <mat-option value="option2">Le deux</mat-option>
             <mat-option value="option3">Enseignant professionnel</mat-option>
             <mat-option value="option4">Tuteur communautaire</mat-option>
           </mat-select>
         </mat-form-field>
 
-      <mat-card>
-        <mat-card-content>Trouve un prof particulier
-        </mat-card-content>
-      </mat-card>
+        <mat-card>
+          <mat-card-content>Trouve un prof particulier </mat-card-content>
+        </mat-card>
       </div>
       <div class="col col-lg-12">
-        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page" #paginator>
+        <mat-paginator
+          [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          aria-label="Select page"
+          #paginator
+        >
         </mat-paginator>
       </div>
-      <div class="col col-lg-12" >
-<div class="container">
-  <div class="card"  *ngFor="let teacher of teachers" >
+      <div class="col col-lg-12">
+        <div class="container">
+          <div class="card" *ngFor="let teacher of teachers">
+            <div class="card-details">
+              <div class="row">
+                <div class="col col-8">
+                  <mat-icon class="avatar-icon">person</mat-icon>
+                  <strong style="padding-right: 4px">{{
+                    teacher.nameuser
+                  }}</strong>
+                  <p
+                    class="font-light text-tiny"
+                    style="line-height: 18px; display: contents"
+                  >
+                    {{ teacher.nblecons }} leçons
+                  </p>
+                </div>
+                <div class="col col-4">
+                  <div class="ml-auto" style="float: right">
+                    <div class="cursor-pointer">
+                      <svg
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="#313140"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M14.298 3.688a5.75 5.75 0 016.267 9.38s0-.001 0 0l-8.035 8.034a.75.75 0 01-1.06 0l-8.036-8.035a5.75 5.75 0 018.133-8.132l.433.433.433-.433a5.751 5.751 0 011.865-1.247zM16.5 4.75a4.25 4.25 0 00-3.005 1.245l-.964.964a.75.75 0 01-1.06 0l-.964-.964a4.25 4.25 0 10-6.011 6.011L12 19.511l7.505-7.505a4.25 4.25 0 00-3.006-7.256z"
+                          fill-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <div class="card-details">
-      <div class="row">
-        <div class="col col-8">
-          <mat-icon class="avatar-icon">person</mat-icon>
-          <strong style="    padding-right: 4px;
-        ">{{teacher.nameuser}}</strong>
-          <p class="font-light text-tiny" style="line-height: 18px;      display: contents;">{{teacher.nblecons}} leçons</p>
-        </div>
-        <div class="col col-4" >
-          <div class=" ml-auto" style="float: right;"><div class="cursor-pointer"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" fill="#313140"><path clip-rule="evenodd" d="M14.298 3.688a5.75 5.75 0 016.267 9.38s0-.001 0 0l-8.035 8.034a.75.75 0 01-1.06 0l-8.036-8.035a5.75 5.75 0 018.133-8.132l.433.433.433-.433a5.751 5.751 0 011.865-1.247zM16.5 4.75a4.25 4.25 0 00-3.005 1.245l-.964.964a.75.75 0 01-1.06 0l-.964-.964a4.25 4.25 0 10-6.011 6.011L12 19.511l7.505-7.505a4.25 4.25 0 00-3.006-7.256z" fill-rule="evenodd"></path></svg></div></div>
+              <mat-card-subtitle>Tuteur communautaire</mat-card-subtitle>
+              <mat-card-subtitle>SPEAKS :</mat-card-subtitle>
+              <p>
+                {{ teacher.description | slice : 0 : 100
+                }}{{ teacher.description.length > 100 ? "..." : "" }}
+              </p>
+              <div class="row">
+                <div class="col col-4">
+                  <span class="text-info" style="font-size: 12px"
+                    >Disponible Demain à 12:30</span
+                  >
+                </div>
+                <div class="col col-8">
+                  <h5 style="float: right">
+                    USD {{ teacher.prix }}
+                    <mat-card-subtitle style="display: initial"
+                      >/ essai</mat-card-subtitle
+                    >
+                    <button mat-button class="btn-rs" style="float: right"   (click)="openDialog()" >
+                      Réserver un essais
+                    </button>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
- <mat-card-subtitle>Tuteur communautaire</mat-card-subtitle>
- <mat-card-subtitle>SPEAKS :</mat-card-subtitle>
- <p>{{ teacher.description | slice:0:100 }}{{ teacher.description.length > 100 ? '...' : '' }}</p>
- <div class="row">
-  <div class="col col-4">
-    <span class="text-info " style="    font-size: 12px;">Disponible Demain à 12:30</span>
-  </div>
-  <div class="col col-8">
-    <h5 style="    float: right;
-    "> USD {{teacher.prix}}  <mat-card-subtitle style="display: initial;
-   ">/ essai</mat-card-subtitle>         <button mat-button class="btn-rs" style="    float: right;
-">Réserver un essai</button>  </h5>
-  </div>
- </div>
-
-  
     </div>
   </div>
 </div>
-       
-   
-      </div>
-  
-      
-    </div>
-  
-  
-  </div>
-  </div>
-
-
- 
