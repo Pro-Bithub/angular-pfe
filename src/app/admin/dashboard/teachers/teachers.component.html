@@ -12,16 +12,16 @@
           <mat-label>Langue</mat-label>
           <mat-select [(ngModel)]="selectedLanguage">
             <mat-option>-- None --</mat-option>
-            <mat-option value="option1">Anglais</mat-option>
-            <mat-option value="option2">Français</mat-option>
-            <mat-option value="option3">Allemand</mat-option>
-            <mat-option value="option4">Italien</mat-option>
+            <mat-option value="Anglais">Anglais</mat-option>
+            <mat-option value="Français">Français</mat-option>
+            <mat-option value="Allemand">Allemand</mat-option>
+            <mat-option value="Italien">Italien</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="custom-form-field">
           <mat-label>Catégorie de leçon</mat-label>
           <mat-select [(ngModel)]="selectedCategorie" multiple>
-            <mat-option>-- None --</mat-option>
+            <mat-option value="-- None --">-- None --</mat-option>
             <mat-optgroup
               *ngFor="let group of categorieGroup"
               [label]="group.name"
@@ -39,13 +39,13 @@
         <mat-form-field class="custom-form-field">
           <mat-label>Heure de la leçon</mat-label>
           <mat-select [(ngModel)]="selectedHeuredelalecon" multiple>
-            <mat-option>-- None --</mat-option>
+            <mat-option  value="-- None --">-- None --</mat-option>
             <mat-optgroup
               *ngFor="let time of timeGroup"
               [label]="time.name"
               [disabled]="time.disabled"
             >
-              <mat-option *ngFor="let times of time.time" [value]="time.value">
+              <mat-option *ngFor="let times of time.time" [value]="times.value">
                 {{ times.viewValue }}
               </mat-option>
             </mat-optgroup>
@@ -56,9 +56,9 @@
           <mat-label>Types de professeurs </mat-label>
 
           <mat-select [(ngModel)]="selectedTypesdeprofesseurs">
-            <mat-option value="option2">Le deux</mat-option>
-            <mat-option value="option3">Enseignant professionnel</mat-option>
-            <mat-option value="option4">Tuteur communautaire</mat-option>
+            <mat-option value="Le deux">Le deux</mat-option>
+            <mat-option value="Enseignant professionnel">Enseignant professionnel</mat-option>
+            <mat-option value="Tuteur communautaire">Tuteur communautaire</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -78,7 +78,7 @@
       </div>
       <div class="col col-lg-12">
         <div class="container">
-          <div class="card" *ngFor="let teacher of teachers">
+          <div class="card" *ngFor="let teacher of teachers | filterTeachers:selectedLanguage:selectedCategorie:selectedHeuredelalecon:selectedTypesdeprofesseurs">
             <div class="card-details">
               <div class="row">
                 <div class="col col-8">
@@ -114,8 +114,8 @@
                 </div>
               </div>
 
-              <mat-card-subtitle>Tuteur communautaire</mat-card-subtitle>
-              <mat-card-subtitle>SPEAKS :</mat-card-subtitle>
+              <mat-card-subtitle>{{teacher.typetuteur}}</mat-card-subtitle>
+              <mat-card-subtitle>SPEAKS : <span *ngFor="let langue of teacher.langues" > {{langue}}</span></mat-card-subtitle>
               <p>
                 {{ teacher.description | slice : 0 : 100
                 }}{{ teacher.description.length > 100 ? "..." : "" }}
@@ -123,7 +123,7 @@
               <div class="row">
                 <div class="col col-4">
                   <span class="text-info" style="font-size: 12px"
-                    >Disponible Demain à 12:30</span
+                    >Disponible Demain à {{teacher.time| slice : 0 : 5}}</span
                   >
                 </div>
                 <div class="col col-8">

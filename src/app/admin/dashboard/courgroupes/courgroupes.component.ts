@@ -9,6 +9,7 @@ interface Place {
   location: string;
   date: string;
   nbplacsrestantes: string;
+  id:Number;
 }
 
 @Component({
@@ -36,7 +37,8 @@ export class Courgroupes implements OnInit {
         prix: '899',
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
-       nbplacsrestantes:'5'
+       nbplacsrestantes:'5',
+       id:1
       },
       {
         imgSrc: 'assets/images/card-2.jpg',
@@ -45,7 +47,8 @@ export class Courgroupes implements OnInit {
         prix: '899',
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
-        nbplacsrestantes:'3'
+        nbplacsrestantes:'3',
+        id:1
       },
       {
         imgSrc: 'assets/images/card-3.jpg',
@@ -54,7 +57,8 @@ export class Courgroupes implements OnInit {
         prix: '899',
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
-        nbplacsrestantes:'10'
+        nbplacsrestantes:'10',
+        id:1
       }
     ];
     console.log( this.courgroupes )

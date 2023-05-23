@@ -10,7 +10,13 @@ interface Place {
   location: string;
   date: string;
   nameuser: string;
+  iduser: Number;
   nblecons: string;
+  typetuteur: string;
+  jour: string;
+  time: string;
+  langues: string[];
+  categorie: string[];
 }
 
 interface Categorie {
@@ -52,11 +58,11 @@ export class Teachers implements OnInit {
   teachers: Array<Place> = [];
   selected = '';
   selectedLanguage: string = '';
-  selectedCategorie: string = '';
+  selectedCategorie:string[];
   selectedjour: string = '';
   selectedheure: string = '';
   selectedTypesdeprofesseurs: string = '';
-  selectedHeuredelalecon: string = '';
+  selectedHeuredelalecon:  string[];
   categorieGroup: CategorieGroup[] = [
     {
       name: 'Général',
@@ -150,7 +156,13 @@ export class Teachers implements OnInit {
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
        nameuser:'Annalena',
-       nblecons:'365'
+       iduser:1,
+       nblecons:'365',
+       typetuteur:'Tuteur communautaire',
+       jour:'Lundi',
+       time:'0:00 - 4:00',
+       langues:'Anglais, Français, Italien'.split(', '),
+       categorie:'Grammaire, Réunion, IELTS, 3 à 6 ans'.split(', ')
       },
       {
         imgSrc: 'assets/images/card-2.jpg',
@@ -160,7 +172,13 @@ export class Teachers implements OnInit {
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
         nameuser:'Rubí McMullen',
-        nblecons:'365'
+        iduser:1,
+        nblecons:'365',
+        typetuteur:'Tuteur communautaire',
+        jour:'Lundi',
+        time:'0:00 - 4:00',
+        langues:'Anglais, Allemand, Italien'.split(', '),
+        categorie:'Grammaire, Réunion, IELTS, 3 à 6 ans'.split(', ')
       },
       {
         imgSrc: 'assets/images/card-3.jpg',
@@ -170,7 +188,13 @@ export class Teachers implements OnInit {
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
         nameuser:'simon kenworthy',
-        nblecons:'365'
+        iduser:1,
+        nblecons:'365',
+        typetuteur:'Enseignant professionnel',
+        jour:'Lundi',
+        time:'0:00 - 4:00',
+        langues:'Français, Allemand, Italien'.split(', '),
+        categorie:'Grammaire, Réunion, IELTS, 3 à 6 ans'.split(', ')
       }
     ];
     console.log( this.teachers )
