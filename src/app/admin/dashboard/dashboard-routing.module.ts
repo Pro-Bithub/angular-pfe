@@ -5,6 +5,7 @@ import { Courgroupes } from './courgroupes/courgroupes.component';
 import { Teachers } from './teachers/teachers.component';
 import { MyGroupCourses } from './myGroupCourses/myGroupCourses.component';
 import { GroupClassDetailComponent } from './group-class-detail/group-class-detail.component';
+import { MyTeachersComponent } from './myTeachers/myTeachers.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
   path: 'my-group-courses',
   component: MyGroupCourses
 },
+{
+  path: 'my-teachers',
+  component: MyTeachersComponent 
+},
+
 
 
 ];

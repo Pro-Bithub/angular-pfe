@@ -21,6 +21,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { GroupClassDetailComponent } from './group-class-detail/group-class-detail.component';
 import { FilterTeachersPipe } from './teachers/filter-teachers.pipe';
+import { FilterCourGroupesPipe } from './courgroupes/filter-cours.pipe';
+import { MyTeachersComponent } from './myTeachers/myTeachers.component';
 
 @NgModule({
   imports: [
@@ -33,6 +35,6 @@ import { FilterTeachersPipe } from './teachers/filter-teachers.pipe';
     MatButtonModule,MatPaginatorModule,MatChipsModule,
     MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule
   ],
-  declarations: [HomeComponent,Courgroupes,MyGroupCourses,Teachers,DialogContentExampleDialog,GroupClassDetailComponent,FilterTeachersPipe, StatComponent]
+  declarations: [HomeComponent,Courgroupes,MyTeachersComponent,MyGroupCourses,Teachers,DialogContentExampleDialog,GroupClassDetailComponent,FilterTeachersPipe,FilterCourGroupesPipe, StatComponent]
 })
 export class DashboardModule {}

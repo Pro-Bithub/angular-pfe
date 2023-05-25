@@ -6,41 +6,45 @@
       <mat-form-field>
         <mat-label>Langue</mat-label>
         <mat-select [(ngModel)]="selectedLanguage">
-          <mat-option value="option1">Anglais</mat-option>
-          <mat-option value="option2">Français</mat-option>
-          <mat-option value="option3">Allemand</mat-option>
-          <mat-option value="option4">Italien</mat-option>
+          <mat-option>-- None --</mat-option>
+          <mat-option value="Anglais">Anglais</mat-option>
+          <mat-option value="Français">Français</mat-option>
+          <mat-option value="Allemand">Allemand</mat-option>
+          <mat-option value="Italien">Italien</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
       <mat-label>Tous les niveaux</mat-label>
       <mat-select [(ngModel)]="selectedniveaux">
-        <mat-option value="option1">A1 : Débutant</mat-option>
-        <mat-option value="option2">A2 : Intermédiaire</mat-option>
-        <mat-option value="option3">B1 : Avancé</mat-option>
-        <mat-option value="option4">B2 : Intermédiaire avancé</mat-option>
-        <mat-option value="option5">C1 : Avancé</mat-option>
-        <mat-option value="option6">C2 : Maîtrise</mat-option>
+        <mat-option>-- None --</mat-option>
+        <mat-option value="A1">A1 : Débutant</mat-option>
+        <mat-option value="A2">A2 : Intermédiaire</mat-option>
+        <mat-option value="B1">B1 : Avancé</mat-option>
+        <mat-option value="B2">B2 : Intermédiaire avancé</mat-option>
+        <mat-option value="C1">C1 : Avancé</mat-option>
+        <mat-option value="C2">C2 : Maîtrise</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Jour</mat-label>
       <mat-select [(ngModel)]="selectedjour">
-        <mat-option value="option1">Lundi</mat-option>
-        <mat-option value="option2">Mardi</mat-option>
-        <mat-option value="option3">Mercredi</mat-option>
-        <mat-option value="option4">Jeudi</mat-option>
-        <mat-option value="option5">Vendredi</mat-option>
-        <mat-option value="option6">Samedi</mat-option>
-        <mat-option value="option6">Dimanche</mat-option>
+        <mat-option>-- None --</mat-option>
+        <mat-option value="Lundi">Lundi</mat-option>
+        <mat-option value="Mardi">Mardi</mat-option>
+        <mat-option value="Mercredi">Mercredi</mat-option>
+        <mat-option value="Jeudi">Jeudi</mat-option>
+        <mat-option value="Vendredi">Vendredi</mat-option>
+        <mat-option value="Samedi">Samedi</mat-option>
+        <mat-option value="Dimanche">Dimanche</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Heure</mat-label>
       <mat-select [(ngModel)]="selectedheure">
-        <mat-option value="option1">Matinée</mat-option>
-        <mat-option value="option2">Après-midi</mat-option>
-        <mat-option value="option3">Soirée</mat-option>
+        <mat-option>-- None --</mat-option>
+        <mat-option value="07:00 - 08:00">Matinée</mat-option>
+        <mat-option value="12:00 - 16:00">Après-midi</mat-option>
+        <mat-option value="16:00 - 20:00">Soirée</mat-option>
    
       </mat-select>
     </mat-form-field>
@@ -57,7 +61,7 @@
     <div class="col col-lg-12">
 
       
-      <mat-card fxFlex  *ngFor="let courgroupe of courgroupes"  class="small-card"  [routerLink]="['/group-class/detail', courgroupe.id]">
+      <mat-card fxFlex  *ngFor="let courgroupe of courgroupes | filterCours:selectedLanguage:selectedniveaux:selectedjour:selectedheure"  class="small-card"  [routerLink]="['/group-class/detail', courgroupe.id]">
         <img mat-card-image [src]="courgroupe.imgSrc">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>

@@ -1,21 +1,26 @@
 
 <div class="mt20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayout.lt-md="column" fxLayoutGap="20px">
+  <div class="container">
+    <div class="row">
+      <div class="col col-6">
+        <h1>
+          Mon cours en groupe
+        </h1>
+      </div>
+      <div class="col col-12">
+        <h5>
+          Pas de cours prévu
+        </h5>
+      </div>
+      <div class="col col-12">
+        <button mat-button class="my-course"  routerLink="/group-courses">
+          <mat-icon>group</mat-icon>
+          Découvrez nos cours en groupe
+        </button>
+ pour trouver celui qu'il vous faut
+      </div>
+   
+    </div>
+  </div>
 
-  <mat-card fxFlex *ngFor="let item of mygroupcours">
-    <img mat-card-image [src]="item.imgSrc">
-    <mat-card-header style="justify-content: center">
-      <mat-card-title>
-        <h3 class="m-0">{{item.name}}</h3>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      {{item.description}}
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>{{item.charge}}</button>
-      <button mat-button>
-        <mat-icon class="location-icon">location_on</mat-icon> {{item.location}}
-      </button>
-    </mat-card-actions>
-  </mat-card>
 </div>

@@ -9,6 +9,12 @@ interface Place {
   location: string;
   date: string;
   nbplacsrestantes: string;
+  nbplactotale: string;
+  langues: string[];
+  description: string;
+  niveaux: string;
+  jour: string;
+  time: string;
   id:Number;
 }
 
@@ -21,11 +27,11 @@ export class Courgroupes implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   courgroupes: Array<Place> = [];
-  selected = 'option2';
-  selectedLanguage: string = 'option1';
-  selectedniveaux: string = 'option1';
-  selectedjour: string = 'option1';
-  selectedheure: string = 'option1';
+  selected = '-- None --';
+  selectedLanguage: string = '-- None --';
+  selectedniveaux: string = '-- None --';
+  selectedjour: string = '-- None --';
+  selectedheure: string = '-- None --';
   value = 'Clear me';
   constructor() {}
   ngOnInit() {
@@ -38,6 +44,12 @@ export class Courgroupes implements OnInit {
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
        nbplacsrestantes:'5',
+       nbplactotale:'10',
+       description:'Rosalind Dott',
+       niveaux:'C1',
+       jour:'Lundi',
+       time:'07:00 - 08:00',
+       langues:'Français, Allemand, Italien'.split(', '),
        id:1
       },
       {
@@ -48,6 +60,12 @@ export class Courgroupes implements OnInit {
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
         nbplacsrestantes:'3',
+        nbplactotale:'10',
+        description:'Rosalind Dott',
+        niveaux:'C2',
+        jour:'Lundi',
+        time:'07:00 - 08:00',
+        langues:'Français, Allemand, Italien'.split(', '),
         id:1
       },
       {
@@ -58,6 +76,12 @@ export class Courgroupes implements OnInit {
         location: 'Barcelona, Spain',
        date: '07:00 - 08:00 lundi, 15 mai 2023',
         nbplacsrestantes:'10',
+        nbplactotale:'10',
+        description:'Rosalind Dott',
+        niveaux:'C2',
+        jour:'Lundi',
+        time:'07:00 - 08:00',
+        langues:'Français, Allemand, Italien'.split(', '),
         id:1
       }
     ];
