@@ -33,45 +33,51 @@
   </div>
  </div>-->
 
-  <div class="wrapper">
-    <div class="formcenter">
-      <div class="formWrapper">
-          <h1 class="title">VisoCall</h1>
-        <h2 class="subtitle">Welcome to VisoCall Get Started</h2> 
-        <form class="login-form" #myForm="ngForm" (ngSubmit)="onLogin()">
-          <div class="text-center">
-            <h2 class="app-name">Material Admin</h2>
+<div class="wrapper">
+  <div class="formcenter">
+    <div class="formWrapper">
+      <h1 class="title">Chatify</h1>
+
+      <h2 class="subtitle">
+        <button mat-button  class="as"  routerLink="/signup/student">
+     
+          S'inscrire en tant qu'élève
+        </button>
+
+       
+        <span style="font-size: 18px;     padding-left: 26px;">ou</span>  <br>
+       
+        <button mat-button  class="as"  routerLink="/signup/tutor">
+     
+          S'inscrire en tant que professeur
+        </button>
+
+      </h2>
+      <form class="login-form" #myForm="ngForm" (ngSubmit)="onLogin()">
+   
+        <div fxLayout="row">
+          <div fxFlexFill>
+            <mat-form-field class="w-100">
+              <input matInput placeholder="Email" />
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput type="password" placeholder="Mot de passe" />
+            </mat-form-field>
           </div>
-          <div fxLayout="row">
-            <div fxFlexFill>
-              <mat-form-field class="w-100">
-                <input matInput placeholder="Email">
-              </mat-form-field>
-              <mat-form-field class="w-100">
-                <input matInput type="password" placeholder="Password">
-              </mat-form-field>
-            </div>
+        </div>
+     
+        <div fxLayout="row">
+          <div fxFlexFill>
+            <button type="submit" mat-raised-button class="w-100 mat-button" style="background-color: #36309c; color: #FFF;">
+              Se connecter
+            </button>
+            
+         
           </div>
-          <div fxLayout="row" fxLayoutAlign="space-between" fxLayout.xs="column" class="mt20 mb20">
-            <mat-checkbox color="primary" [ngStyle.xs]="{'margin-bottom.px': 10}">Remember Me</mat-checkbox>
-            <a href="javascript:void(0)">Forgot Password</a>
-          </div>
-          <div fxLayout="row">
-            <div fxFlexFill>
-              <button type="submit" mat-raised-button color="primary" class="w-100">Login</button>
-              <button type="button" mat-button color="primary" class="w-100" (click)="onLogin()">Sign Up</button>
-            </div>
-          </div>
-    
-        </form>
-        <p>
-          Don't have an account?
-          
-        </p>
-      </div>
+        </div>
+      </form>
+
     </div>
-    <div class="background" >  </div>
   </div>
-
-
-
+  <div class="background"></div>
+</div>

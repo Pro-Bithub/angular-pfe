@@ -1,0 +1,47 @@
+
+<div class="wrapper">
+  <div class="formcenter">
+    <div class="formWrapper">
+      <h4 class="title">S'inscrire en tant
+        <span *ngIf="isprof==false">qu'élève</span>
+        <span *ngIf="isprof==true">qu'professeur</span>
+      </h4>
+      
+      <p>Vous avez déjà un compte ?    <button mat-button  class="as"  routerLink="/login">
+     
+        Connectez-vous
+      </button>
+ </p> 
+       
+      
+      <form class="login-form" #myForm="ngForm" (ngSubmit)="onLogin()">
+   
+        <div fxLayout="row">
+          <div fxFlexFill>
+            <mat-form-field class="w-100">
+              <input matInput placeholder="Nom" />
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput placeholder="E-mail" />
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput type="password" placeholder="Mot de passe" />
+            </mat-form-field>
+          </div>
+        </div>
+     
+        <div fxLayout="row">
+          <div fxFlexFill>
+            <button type="submit" mat-raised-button class="w-100 mat-button" style="background-color: #36309c; color: #FFF;">
+              S'inscrire
+            </button>
+            
+         
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="background"></div>
+</div>
