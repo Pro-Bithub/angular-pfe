@@ -8,15 +8,19 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { AdminRoutingModule } from './admin-routing.module';
-import { LayoutComponent } from './layout/layout.component';
-import { TopNavComponent } from './layout/top-nav/top-nav.component';
-import { SideNavComponent } from './layout/side-nav/side-nav.component';
+import { TeacherDashboardRoutingModule } from './teacher-dashboard-routing.module';
+
+
+import { LayoutTutorComponent } from '../admin/layout/layout-tutor.component';
+import { TopNavTutorComponent } from '../admin/layout/top-nav-tutor/top-nav-tutor.component';
+import { SideNavComponent } from '../admin/layout/side-nav/side-nav.component';
+
+
 
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule,
+    TeacherDashboardRoutingModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -24,7 +28,9 @@ import { SideNavComponent } from './layout/side-nav/side-nav.component';
     MatInputModule,
     MatMenuModule,
     MatListModule
+
+
   ],
-  declarations: [LayoutComponent, TopNavComponent]
+  declarations: [LayoutTutorComponent,TopNavTutorComponent,SideNavComponent]
 })
-export class AdminModule {}
+export class TeacherDashboardModule {}

@@ -11,6 +11,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'fr',
+    loadChildren: () =>
+      import('./teacher-dashboard/teacher-dashboard.module').then((m) => m.TeacherDashboardModule),
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'login',
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
