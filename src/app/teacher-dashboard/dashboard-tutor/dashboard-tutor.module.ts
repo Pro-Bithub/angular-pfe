@@ -16,6 +16,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DashboardTutorRoutingModule } from './dashboard-tutor-routing.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
+import { Courgroupes } from './courgroupes/courgroupes.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -28,8 +32,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSidenavModule,
     MatTableModule,
     MatButtonModule,MatPaginatorModule,MatChipsModule,
-    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule
+    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule,MatInputModule, MatCheckboxModule
   ],
-  declarations: []
+  declarations: [TutorProfileComponent,Courgroupes ]
 })
 export class DashboardTutorModule {}
