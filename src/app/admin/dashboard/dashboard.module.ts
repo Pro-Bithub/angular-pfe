@@ -35,6 +35,6 @@ import { MyTeachersComponent } from './myTeachers/myTeachers.component';
     MatButtonModule,MatPaginatorModule,MatChipsModule,
     MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule
   ],
-  declarations: [HomeComponent,Courgroupes,MyTeachersComponent,MyGroupCourses,Teachers,DialogContentExampleDialog,GroupClassDetailComponent,FilterTeachersPipe,FilterCourGroupesPipe, StatComponent]
+  declarations: [HomeComponent,Courgroupes,MyTeachersComponent,MyGroupCourses,Teachers,DialogContentExampleDialog,GroupClassDetailComponent,FilterTeachersPipe,FilterCourGroupesPipe]
 })
 export class DashboardModule {}

@@ -20,6 +20,15 @@ import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
 import { Courgroupes } from './courgroupes/courgroupes.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CoursService } from './courgroupes/cours.service';
+import { AddCourgroupe } from './add-courgroupe/add-courgroupe.component';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { AppointmentService } from './appointment/appointment.service';
+import { Appointment } from './appointment/appointment.component';
+import { StatComponent } from 'src/app/admin/dashboard/stat/stat.component';
+import { StudentService } from './student/student.service';
+import { student } from './student/student.component';
+
 
 
 @NgModule({
@@ -32,8 +41,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSidenavModule,
     MatTableModule,
     MatButtonModule,MatPaginatorModule,MatChipsModule,
-    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule,MatInputModule, MatCheckboxModule
+    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule,MatInputModule, MatCheckboxModule,NgxMaterialTimepickerModule
   ],
-  declarations: [TutorProfileComponent,Courgroupes ]
+  declarations: [TutorProfileComponent,Courgroupes,AddCourgroupe,Appointment,StatComponent,student],
+  providers: [CoursService,AppointmentService,StudentService]
 })
 export class DashboardTutorModule {}

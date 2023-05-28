@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-8"> <h2>Ajouter une cour</h2> </div>
+        <div class="col col-4">  
+          <button   mat-raised-button color="primary" type="submit"  type="submit"  (click)="addCourse()">
+            Ajouter
+          </button> </div>
+
+          <div class="col col-12">
+    
+
+            <form (submit)="addCourse()">
+              <div>
+                <mat-form-field>
+                  <mat-label>Titre :</mat-label>
+                  <input matInput placeholder="Titre" [(ngModel)]="course.title" name="title" required>
+                </mat-form-field>
+              </div>
+            
+              <div>
+                <mat-form-field>
+                  <mat-label>Nombre de places :</mat-label>
+                  <input matInput type="number" placeholder="Nombre de places" [(ngModel)]="course.availableSeats" name="availableSeats" required>
+                </mat-form-field>
+              </div>
+            
+              <div>
+                <mat-form-field>
+                  <mat-label>Langue :</mat-label>
+                  <mat-select name="language" [(ngModel)]="course.language" required >
+                    <mat-option value="Français"
+                      >Français</mat-option
+                    >
+                    <mat-option value="Allemand"
+                    >Allemand</mat-option
+                  >
+                  <mat-option value="Italien"
+                      >Italien</mat-option
+                    >
+                    <mat-option value="Anglais"
+                      >Anglais</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                  <mat-label>Niveau de cours :</mat-label>
+                  <mat-select placeholder="Niveau de cours" [(ngModel)]="course.level" name="level" required>
+                    <mat-option>-- None --</mat-option>
+                    <mat-option value="A1">A1 : Débutant</mat-option>
+                    <mat-option value="A2">A2 : Intermédiaire</mat-option>
+                    <mat-option value="B1">B1 : Avancé</mat-option>
+                    <mat-option value="B2">B2 : Intermédiaire avancé</mat-option>
+                    <mat-option value="C1">C1 : Avancé</mat-option>
+                    <mat-option value="C2">C2 : Maîtrise</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              
+          
+            
+              <div>
+                <mat-form-field>
+                  <mat-label>Date de cours :</mat-label>
+                  <input matInput type="date" placeholder="Date de cours" [(ngModel)]="course.date" name="date" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                  <mat-label>Heure de cours</mat-label>
+                  <input matInput [ngxTimepicker]="picker" placeholder="Select time"   [(ngModel)]="course.time"  name="time"    >
+                  <ngx-material-timepicker #picker></ngx-material-timepicker>
+                </mat-form-field>
+                
+              </div>
+  
+              <div>
+                <mat-form-field>
+                  <mat-label>Temps de cours :</mat-label>
+                  <input matInput type="number" placeholder="Temps de cours" [(ngModel)]="course.duration" name="duration" required>
+                </mat-form-field>
+              </div>
+            
+              <div>
+                <mat-form-field>
+                  <mat-label>Description :</mat-label>
+                  <textarea matInput placeholder="Description" [(ngModel)]="course.description" name="description" required></textarea>
+                </mat-form-field>
+              </div>
+            
+              <div>
+                <mat-form-field>
+                  <mat-label>Prix de cours :</mat-label>
+                  <input matInput type="number" placeholder="Prix de cours" [(ngModel)]="course.price" name="price" required>
+                </mat-form-field>
+              </div>
+            
+              <button mat-raised-button color="primary" type="submit">Ajouter </button>
+            </form>
+            
+          </div>
+    </div>
+</div>

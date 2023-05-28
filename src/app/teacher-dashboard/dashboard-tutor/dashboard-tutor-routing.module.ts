@@ -2,14 +2,33 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { Courgroupes } from './courgroupes/courgroupes.component';
 import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
+import { AddCourgroupe } from './add-courgroupe/add-courgroupe.component';
+import { Appointment } from './appointment/appointment.component';
+import { student } from './student/student.component';
 
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'cours',
     component: Courgroupes
 },
-{ path: 'tutor-profile', component: TutorProfileComponent }
+{
+  path: 'add-course',
+  component: AddCourgroupe
+},
+{
+  path: 'appointment',
+  component: Appointment
+},
+{
+  path: 'student',
+  component: student
+},
+
+
+{ path: 'tutor-profile', component: TutorProfileComponent },
+
+
 ];
 
 @NgModule({

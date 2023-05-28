@@ -3,16 +3,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { CoursService, UserData } from './cours.service';
+import { StudentService, UserData } from './student.service';
 
 
 
 @Component({
-  selector: 'app-courgroupes',
-  templateUrl: './courgroupes.component.html',
-  styleUrls: ['./courgroupes.component.scss']
+  selector: 'app-student',
+  templateUrl: './student.component.html',
+  styleUrls: ['./student.component.scss']
 })
-export class Courgroupes implements OnInit {
+export class student implements OnInit {
 
   displayedColumns = [ 'id', 'name', 'progress', 'color','action'];
   dataSource: MatTableDataSource<UserData>;
@@ -20,10 +20,10 @@ export class Courgroupes implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private readonly coursService: CoursService) {}
+  constructor(private readonly studentService: StudentService) {}
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.coursService.create100Users());
+    this.dataSource = new MatTableDataSource(this.studentService.create100Users());
     this.selection = new SelectionModel<UserData>(true, []);
   }
   editCourse(id: string){
