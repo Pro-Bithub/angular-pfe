@@ -4,33 +4,52 @@
   <a
   mat-list-item
   [routerLinkActive]="'active'"
+  routerLink="/fr/dashboard-tutor/tutor"
+>
+  <mat-icon class="sidenav-icon">people</mat-icon>
+Tuteurs 
+</a>
+
+  <a
+  mat-list-item
+  [routerLinkActive]="'active'"
   routerLink="/fr/dashboard-tutor/student"
 >
-  <mat-icon class="sidenav-icon">table_chart</mat-icon>
-Liste des étudiants 
+  <mat-icon class="sidenav-icon">person</mat-icon>
+ étudiants 
 </a>
   <a
     mat-list-item
     [routerLinkActive]="'active'"
     routerLink="/fr/dashboard-tutor/cours"
   >
-    <mat-icon class="sidenav-icon">table_chart</mat-icon>
-  Liste des cours collectifs 
+    <mat-icon class="sidenav-icon">class</mat-icon>
+   Cours collectifs 
   </a>
+  <a
+    mat-list-item
+    [routerLinkActive]="'active'"
+    routerLink="/fr/dashboard-tutor/transactions"
+  >
+    <mat-icon class="sidenav-icon">attach_money</mat-icon>
+    transactions
+  </a>
+  
+
   <a
     mat-list-item
     [routerLinkActive]="'active'"
     routerLink="/fr/dashboard-tutor/appointment"
   >
-    <mat-icon class="sidenav-icon">table_chart</mat-icon>
-  Liste des rendez vous
+    <mat-icon class="sidenav-icon">event</mat-icon>
+   Rendez vous
   </a>
   <a
   mat-list-item
   [routerLinkActive]="'active'"
   routerLink="/fr/dashboard-tutor/tutor-profile"
 >
-  <mat-icon class="sidenav-icon">account_circle</mat-icon>
+  <mat-icon class="sidenav-icon">settings</mat-icon>
   Modifier mon profil
 </a>
 

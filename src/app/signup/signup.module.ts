@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup/signup.component';
+import { SignupService } from './signup/signup.service';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { SignupComponent } from './signup/signup.component';
     MatButtonModule,
     SignupRoutingModule
   ],
-  declarations: [SignupComponent]
+  declarations: [SignupComponent],
+  providers: [SignupService]
 })
 export class SignupModule {}

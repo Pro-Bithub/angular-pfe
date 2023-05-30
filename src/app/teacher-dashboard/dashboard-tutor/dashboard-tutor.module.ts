@@ -28,6 +28,10 @@ import { Appointment } from './appointment/appointment.component';
 import { StatComponent } from 'src/app/admin/dashboard/stat/stat.component';
 import { StudentService } from './student/student.service';
 import { student } from './student/student.component';
+import { TutorService } from './tutor/tutor.service';
+import { TutorComponent } from './tutor/tutor.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { TransactionsService } from './transactions/Transactions.service';
 
 
 
@@ -43,7 +47,7 @@ import { student } from './student/student.component';
     MatButtonModule,MatPaginatorModule,MatChipsModule,
     MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule,MatInputModule, MatCheckboxModule,NgxMaterialTimepickerModule
   ],
-  declarations: [TutorProfileComponent,Courgroupes,AddCourgroupe,Appointment,StatComponent,student],
-  providers: [CoursService,AppointmentService,StudentService]
+  declarations: [TutorProfileComponent,Courgroupes,AddCourgroupe,Appointment,StatComponent,student,TutorComponent,TransactionsComponent],
+  providers: [CoursService,AppointmentService,StudentService,TutorService,TransactionsService]
 })
 export class DashboardTutorModule {}

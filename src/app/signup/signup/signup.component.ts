@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SignupService } from './signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
    isprof:boolean=false
-  constructor(private router: Router,private route: ActivatedRoute) {}
+   nom: string;
+   email: string;
+   motdepasse: string;
+   confirmPassword: string;
+  constructor(private router: Router,private route: ActivatedRoute, private  signupService: SignupService) {}
 
 
   ngOnInit() {
@@ -20,8 +25,77 @@ export class SignupComponent implements OnInit {
       console.log(this.isprof ); // or use the parameter value as needed
     });
   }
-  onLogin() {
-    localStorage.setItem('isLoggedin', 'true');
-    this.router.navigate(['/dashboard']);
+
+
+
+  onRegister(): void {
+    // Vérification du mot de passe
+    if (this.motdepasse !== this.confirmPassword) {
+      // Afficher une erreur ou effectuer une action appropriée
+      console.log("Les mots de passe ne correspondent pas");
+      return;
+    }
+    const userData = {
+      nom: this.nom,
+      email: this.email,
+      motdepasse: this.motdepasse
+    };
+
+    if (this.isprof) {
+      this.registerTutor(userData)
+    }else{
+      this.registerEtudiant(userData)
+    }
+   
+
+
+    // Ajoutez votre logique d'inscription ici
   }
+  registerEtudiant(userData:any): void {
+ 
+
+    this.signupService.registerEtudiant(userData).subscribe(
+      response => {
+        // Traitement de la réponse du service après l'inscription réussie
+        console.log('Inscription réussie', response);
+
+        const etudiantDataString = JSON.stringify(response);
+        localStorage.setItem("etudiantData", etudiantDataString);
+        localStorage.setItem('isLoggedin', 'true');
+        this.router.navigate(['/dashboard/teachers']);
+
+
+        // Effectuer d'autres actions telles que la redirection vers une page de connexion, afficher un message de succès, etc.
+      },
+      error => {
+        // Gérer les erreurs d'inscription
+        console.error('Erreur lors de l\'inscription', error);
+        // Afficher un message d'erreur ou prendre une autre action appropriée
+      }
+    );
+  }
+  registerTutor(userData:any): void {
+ 
+
+    this.signupService.registerTutor(userData).subscribe(
+      response => {
+        // Traitement de la réponse du service après l'inscription réussie
+        console.log('Inscription réussie', response);
+
+        const tuteurDataString = JSON.stringify(response);
+        localStorage.setItem("tuteurData", tuteurDataString);
+        localStorage.setItem('isLoggedin', 'true');
+        this.router.navigate(['/fr/dashboard-tutor/tutor-profile']);
+
+
+        // Effectuer d'autres actions telles que la redirection vers une page de connexion, afficher un message de succès, etc.
+      },
+      error => {
+        // Gérer les erreurs d'inscription
+        console.error('Erreur lors de l\'inscription', error);
+        // Afficher un message d'erreur ou prendre une autre action appropriée
+      }
+    );
+  }
+
 }

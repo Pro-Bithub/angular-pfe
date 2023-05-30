@@ -104,7 +104,22 @@
           <div>
             <h5>Disponibilité du tuteur :</h5>
             <div>
-              
+              <mat-form-field>
+                <mat-label>Jour de la semaine :</mat-label>
+                <input matInput [(ngModel)]="tutor.disponibilite" name="day">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Heure de début :</mat-label>
+                <input matInput [(ngModel)]="tutor.disponibilite" name="startTime">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Heure de fin :</mat-label>
+                <input matInput [(ngModel)]="tutor.disponibilite" name="endTime">
+              </mat-form-field>
+
+
                 <mat-form-field>
                     <mat-label>Lundi : </mat-label>
                     <mat-select name="disponibilite" [(ngModel)]="tutor.disponibilite"  multiple>

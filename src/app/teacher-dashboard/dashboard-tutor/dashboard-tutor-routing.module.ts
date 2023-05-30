@@ -5,6 +5,8 @@ import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
 import { AddCourgroupe } from './add-courgroupe/add-courgroupe.component';
 import { Appointment } from './appointment/appointment.component';
 import { student } from './student/student.component';
+import { TutorComponent } from './tutor/tutor.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,14 @@ const routes: Routes = [
 {
   path: 'student',
   component: student
+},
+{
+  path: 'tutor',
+  component: TutorComponent
+},
+{
+  path: 'transactions',
+  component: TransactionsComponent
 },
 
 

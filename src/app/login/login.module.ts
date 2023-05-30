@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     LoginRoutingModule
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent],
+  providers: [LoginService]
 })
 export class LoginModule {}

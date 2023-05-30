@@ -14,34 +14,33 @@
         </button>
       </p>
 
-      <form class="login-form" #myForm="ngForm" (ngSubmit)="onLogin()">
+      <form class="login-form" #myForm="ngForm" (ngSubmit)="onRegister()">
         <div fxLayout="row">
           <div fxFlexFill>
             <mat-form-field class="w-100">
-              <input matInput placeholder="Nom" />
+              <input matInput placeholder="Nom" name="nom" [(ngModel)]="nom" required>
             </mat-form-field>
             <mat-form-field class="w-100">
-              <input matInput placeholder="E-mail" />
+              <input matInput placeholder="E-mail" name="email" [(ngModel)]="email" required email>
             </mat-form-field>
             <mat-form-field class="w-100">
-              <input matInput type="password" placeholder="Mot de passe" />
+              <input matInput type="password" placeholder="Mot de passe" name="motdepasse" [(ngModel)]="motdepasse" required>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput type="password" placeholder="Confirmer le mot de passe" name="confirmPassword" [(ngModel)]="confirmPassword" required>
             </mat-form-field>
           </div>
         </div>
-
+      
         <div fxLayout="row">
           <div fxFlexFill>
-            <button
-              type="submit"
-              mat-raised-button
-              class="w-100 mat-button"
-              style="background-color: #36309c; color: #fff"
-            >
+            <button type="submit" mat-raised-button class="w-100 mat-button" style="background-color: #36309c; color: #fff">
               S'inscrire
             </button>
           </div>
         </div>
       </form>
+      
     </div>
   </div>
   <div class="background"></div>
