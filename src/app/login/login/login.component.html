@@ -58,11 +58,32 @@
         <div fxLayout="row">
           <div fxFlexFill>
             <mat-form-field class="w-100">
-              <input matInput placeholder="Email" />
+              <input matInput placeholder="Email" name="email" [(ngModel)]="email" required/>
             </mat-form-field>
             <mat-form-field class="w-100">
-              <input matInput type="password" placeholder="Mot de passe" />
+              <input matInput type="password" placeholder="Mot de passe" name="motdepasse" [(ngModel)]="motdepasse" required/>
             </mat-form-field>
+
+
+      
+
+            <mat-form-field class="w-100">
+              <mat-label>Type d'utilisateur</mat-label> <!-- Ajout du libellé -->
+
+              <mat-select [(ngModel)]="selectedtype" name="selectedtype" >
+                <mat-option  value="student" selected>
+                  Étudiant
+                </mat-option>
+                <mat-option  value="tutor">
+                  Tuteur
+                </mat-option>
+
+
+              </mat-select>
+
+           
+            </mat-form-field>
+
           </div>
         </div>
      

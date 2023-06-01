@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 export interface UserData {
   id: string;
   name: string;
@@ -8,71 +11,20 @@ export interface UserData {
 
 @Injectable()
 export class StudentService {
-  private readonly colors = [
-    'maroon',
-    'red',
-    'orange',
-    'yellow',
-    'olive',
-    'green',
-    'purple',
-    'fuchsia',
-    'lime',
-    'teal',
-    'aqua',
-    'blue',
-    'navy',
-    'black',
-    'gray'
-  ];
-  private readonly names = [
-    'Maia',
-    'Asher',
-    'Olivia',
-    'Atticus',
-    'Amelia',
-    'Jack',
-    'Charlotte',
-    'Theodore',
-    'Isla',
-    'Oliver',
-    'Isabella',
-    'Jasper',
-    'Cora',
-    'Levi',
-    'Violet',
-    'Arthur',
-    'Mia',
-    'Thomas',
-    'Elizabeth'
-  ];
+  private apiUrl: string = environment.apiUrl;
+ 
+  constructor(private http: HttpClient) {}
 
-  constructor() {}
-
-  createNewUser(id: number): UserData {
-    const name =
-      this.names[this.getRandomArrayIndex(this.names.length)] +
-      ' ' +
-      this.names[this.getRandomArrayIndex(this.names.length)].charAt(0) +
-      '.';
-
-    return {
-      id: id.toString(),
-      name: name,
-      progress: Math.round(Math.random() * 100).toString(),
-      color: this.colors[this.getRandomArrayIndex(this.colors.length)]
-    };
+  gettAllStudent(): Observable<any> {
+    const url = `${this.apiUrl}/etudiants/`; // Ajoutez le chemin d'API spécifique, par exemple '/signup'
+    return this.http.get(url);
   }
 
-  create100Users(): UserData[] {
-    const users: UserData[] = [];
-    for (let i = 1; i <= 100; i++) {
-      users.push(this.createNewUser(i));
-    }
-    return users;
+  deleteStudent(id: string): Observable<any> {
+    const url = `${this.apiUrl}/etudiants/${id}`;
+    return this.http.delete(url);
   }
 
-  private getRandomArrayIndex(length: number): number {
-    return Math.round(Math.random() * (length - 1));
-  }
+
+
 }

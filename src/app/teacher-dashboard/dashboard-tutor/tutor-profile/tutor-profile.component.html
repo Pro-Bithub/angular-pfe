@@ -18,8 +18,8 @@
             <input
               matInput
               placeholder="Prénom"
-              [(ngModel)]="tutor.firstName"
-              name="firstName"
+              [(ngModel)]="tutor.prenom"
+              name="prenom"
             />
           </mat-form-field>
         </div>
@@ -30,8 +30,8 @@
             <input
               matInput
               placeholder="Nom"
-              [(ngModel)]="tutor.lastName"
-              name="lastName"
+              [(ngModel)]="tutor.nom"
+              name="nom"
             />
           </mat-form-field>
         </div>
@@ -50,13 +50,13 @@
         <div>
           <mat-form-field>
             <mat-label>Biographie :</mat-label>
-            <textarea matInput [(ngModel)]="tutor.bio" name="bio"></textarea>
+            <textarea matInput [(ngModel)]="tutor.bilographie" name="bilographie"></textarea>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
             <mat-label>Type de tuteur</mat-label>
-            <mat-select name="type" [(ngModel)]="tutor.type" required>
+            <mat-select name="typedetuteur" [(ngModel)]="tutor.typedetuteur" required>
               <mat-option value="Tuteur communautaire"
                 >Tuteur communautaire</mat-option
               >
@@ -71,7 +71,7 @@
         <div>
             <mat-form-field>
               <mat-label>Langues parlées</mat-label>
-              <mat-select name="type" [(ngModel)]="tutor.languages" required multiple>
+              <mat-select name="type" [(ngModel)]="tutor.languesparlees" required multiple>
                 <mat-option value="Français"
                   >Français</mat-option
                 >
@@ -90,7 +90,7 @@
 
           <div>
             <mat-form-field>
-              <mat-label>Prix des cours par heure :</mat-label>
+              <mat-label>Prix des cours par heure : (USD)</mat-label>
               <input
                 matInput
                 placeholder="Prix des cours par heure"
@@ -100,7 +100,7 @@
             </mat-form-field>
           </div>
 
-          
+     <!--      
           <div>
             <h5>Disponibilité du tuteur :</h5>
             <div>
@@ -328,7 +328,7 @@
          
         
         </div>
-
+ -->
 
         <div>
           <mat-form-field>
@@ -336,12 +336,13 @@
             <input
               matInput
               [type]="hide ? 'password' : 'text'"
-              [(ngModel)]="tutor.password"
-              name="password"
+              [(ngModel)]="tutor.motdepasse"
+              name="motdepasse"
             />
             <button
               mat-icon-button
               matSuffix
+              type="button"
               (click)="hide = !hide"
               [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide"
@@ -351,18 +352,41 @@
           </mat-form-field>
         </div>
 
+     
+        <div>
+          <mat-form-field>
+            <mat-label>Nouveau mot de passe :</mat-label>
+            <input
+              matInput
+              [type]="hide3 ? 'password' : 'text'"
+              [(ngModel)]="tutor.nouveaumotdepasse"
+              name="nouveaumotdepasse"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="hide3 = !hide3"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide3"
+            >
+              <mat-icon>{{ hide3 ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
         <div>
           <mat-form-field>
             <mat-label>Confirmer le mot de passe :</mat-label>
             <input
               matInput
-              [type]="hide ? 'password' : 'text'"
+              [type]="hide2 ? 'password' : 'text'"
               [(ngModel)]="confirmPassword"
               name="confirmPassword"
             />
             <button
               mat-icon-button
               matSuffix
+              type="button"
               (click)="hide2 = !hide2"
               [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide"
@@ -371,7 +395,6 @@
             </button>
           </mat-form-field>
         </div>
-
       
       </form>
     </div>

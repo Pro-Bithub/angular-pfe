@@ -14,7 +14,7 @@ import { StudentService, UserData } from './student.service';
 })
 export class student implements OnInit {
 
-  displayedColumns = [ 'id', 'name', 'progress', 'color','action'];
+  displayedColumns = [ 'id', 'nom', 'email','created_at','action'];
   dataSource: MatTableDataSource<UserData>;
   selection: SelectionModel<UserData>;
 
@@ -23,18 +23,43 @@ export class student implements OnInit {
   constructor(private readonly studentService: StudentService) {}
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.studentService.create100Users());
-    this.selection = new SelectionModel<UserData>(true, []);
+    this. gettAllStudent()
   }
-  editCourse(id: string){
+  gettAllStudent(){
+    this.studentService.gettAllStudent().subscribe(
+      response => {
+        // Traitement de la réponse du service après l'inscription réussie
+        console.log('gettAllStudent  réussie', response);
+        this.dataSource = new MatTableDataSource(response);
+        this.selection = new SelectionModel<any>(true, []);
+
+        // Effectuer d'autres actions telles que la redirection vers une page de connexion, afficher un message de succès, etc.
+      },
+      error => {
+        // Gérer les erreurs d'inscription
+        console.error('Erreur ', error);
+        // Afficher un message d'erreur ou prendre une autre action appropriée
+      }
+    );
 
   }
-  deleteCourse(id: string){
 
-  }
-  viewCourse(id: string){
+  deleteStudent(id: string){
+    this.studentService.deleteStudent(id).subscribe(
+      response => {
+  
+        this. gettAllStudent()
 
+        // Effectuer d'autres actions telles que la redirection vers une page de connexion, afficher un message de succès, etc.
+      },
+      error => {
+        // Gérer les erreurs d'inscription
+        console.error('Erreur ', error);
+        // Afficher un message d'erreur ou prendre une autre action appropriée
+      }
+    );
   }
+
   
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

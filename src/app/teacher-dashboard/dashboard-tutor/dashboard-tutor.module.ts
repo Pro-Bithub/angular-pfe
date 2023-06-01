@@ -28,7 +28,7 @@ import { Appointment } from './appointment/appointment.component';
 import { StatComponent } from 'src/app/admin/dashboard/stat/stat.component';
 import { StudentService } from './student/student.service';
 import { student } from './student/student.component';
-import { TutorService } from './tutor/tutor.service';
+import { TutorService } from './tutor.service';
 import { TutorComponent } from './tutor/tutor.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { TransactionsService } from './transactions/Transactions.service';

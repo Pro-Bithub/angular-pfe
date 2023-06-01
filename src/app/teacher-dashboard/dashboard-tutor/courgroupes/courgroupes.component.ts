@@ -14,18 +14,40 @@ import { CoursService, UserData } from './cours.service';
 })
 export class Courgroupes implements OnInit {
 
-  displayedColumns = [ 'id', 'name', 'progress', 'color','action'];
+
+  displayedColumns = [ 'id', 'titre', 'placesDisponibles', 'langue', 'niveau', 'duree', 'date', 'description', 'prix', 'horaire','action'];
   dataSource: MatTableDataSource<UserData>;
   selection: SelectionModel<UserData>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private readonly coursService: CoursService) {}
+  constructor(private  coursService: CoursService) {}
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.coursService.create100Users());
-    this.selection = new SelectionModel<UserData>(true, []);
+    this. gettAllCours()
   }
+
+  gettAllCours(){
+    const idtutor=this.getidtutor()
+    this.coursService.gettAllCourse(idtutor).subscribe(
+      response => {
+        // Traitement de la réponse du service après l'inscription réussie
+        console.log('gettAllTutor  réussie', response);
+        this.dataSource = new MatTableDataSource(response);
+        this.selection = new SelectionModel<any>(true, []);
+
+        // Effectuer d'autres actions telles que la redirection vers une page de connexion, afficher un message de succès, etc.
+      },
+      error => {
+        // Gérer les erreurs d'inscription
+        console.error('Erreur ', error);
+        // Afficher un message d'erreur ou prendre une autre action appropriée
+      }
+    );
+
+  }
+
+
   editCourse(id: string){
 
   }
@@ -40,25 +62,18 @@ export class Courgroupes implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+  getidtutor() {
+    // Récupérer l'objet tuteurData de la localStorage
+    const tuteurData = localStorage.getItem("tuteurData");
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    // Vérifier si l'objet tuteurData existe
+    if (tuteurData) {
+      // Convertir la chaîne JSON en objet JavaScript
+      const tuteurDataObj = JSON.parse(tuteurData);
+
+      return tuteurDataObj.id;
     }
+    return null;
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected()
-      ? this.selection.clear()
-      : this.dataSource.data.forEach(row => this.selection.select(row));
-  }
 }

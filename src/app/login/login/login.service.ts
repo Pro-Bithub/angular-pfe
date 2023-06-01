@@ -13,11 +13,11 @@ export class LoginService {
   private apiUrl: string = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
-  registerTutor(userData: any): Observable<any> {
+  loginTutor(userData: any): Observable<any> {
     const url = `${this.apiUrl}/tuteurs/login`; // Ajoutez le chemin d'API spécifique, par exemple '/login'
     return this.http.post(url, userData);
   }
-  registerEtudiant(userData: any): Observable<any> {
+  loginEtudiant(userData: any): Observable<any> {
     const url = `${this.apiUrl}/etudiants/login`; // Ajoutez le chemin d'API spécifique, par exemple '/login'
     return this.http.post(url, userData);
   }

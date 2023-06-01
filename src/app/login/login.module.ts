@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { LoginService } from './login/login.service';
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
-    LoginRoutingModule
+    LoginRoutingModule, MatSelectModule
   ],
   declarations: [LoginComponent],
   providers: [LoginService]
