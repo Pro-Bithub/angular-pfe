@@ -153,9 +153,10 @@
         </mat-paginator>
       </div>
       <div class="col col-lg-12">
-        <div class="container">
+        <div class="row">
+       
           <div
-            class="card"
+            class="col col-lg-4"
             *ngFor="
               let teacher of teachers
                 | filterTeachers
@@ -165,12 +166,14 @@
                   : selectedTypesdeprofesseurs
             "
           >
-            <div class="card-details">
+
+          <div class="card">
+            <div class="card-details" style="    width: 428px;">
               <div class="row">
                 <div class="col col-8">
                   <mat-icon class="avatar-icon">person</mat-icon>
                   <strong style="padding-right: 4px">{{
-                    teacher.nameuser
+                    teacher.nom
                   }}</strong>
                   <p
                     class="font-light text-tiny"
@@ -181,13 +184,13 @@
                 </div>
                 <div class="col col-4">
                   <div class="ml-auto" style="float: right">
-                    <div class="cursor-pointer">
+                    <div class="cursor-pointer" (click)="toggleFavoriteStatus(teacher.id)">
                       <svg
                         height="24"
                         viewBox="0 0 24 24"
                         width="24"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="#313140"
+                        [style.fill]="isFavorite(teacher.id) ? 'red' : '#313140'"
                       >
                         <path
                           clip-rule="evenodd"
@@ -196,31 +199,33 @@
                         ></path>
                       </svg>
                     </div>
+                    
                   </div>
                 </div>
               </div>
 
-              <mat-card-subtitle>{{ teacher.typetuteur }}</mat-card-subtitle>
+              <mat-card-subtitle>{{ teacher.typedetuteur }}</mat-card-subtitle>
               <mat-card-subtitle
                 >SPEAKS :
-                <span *ngFor="let langue of teacher.langues">
+                <span *ngFor="let langue of teacher.languesparlees">
                   {{ langue }}</span
                 ></mat-card-subtitle
               >
-              <p>
-                {{ teacher.description | slice : 0 : 100
-                }}{{ teacher.description.length > 100 ? "..." : "" }}
+              <p style="
+              height: 40px;
+          ">
+                {{ teacher.bilographie ? (teacher.bilographie | slice: 0:100) + (teacher.bilographie.length > 100 ? '...' : '') : '' }}
               </p>
+              
               <div class="row">
-                <div class="col col-4">
+                <div class="col col-3">
                   <span class="text-info" style="font-size: 12px"
-                    >Disponible Demain à
-                    {{ teacher.time | slice : 0 : 5 }}</span
+                    >Disponible </span
                   >
                 </div>
-                <div class="col col-8">
+                <div class="col col-9">
                   <h5 style="float: right">
-                    USD {{ teacher.prix }}
+                    {{ teacher.pricePerHour }}   USD 
                     <mat-card-subtitle style="display: initial"
                       >/ essai</mat-card-subtitle
                     >
@@ -228,7 +233,7 @@
                       mat-button
                       class="btn-rs"
                       style="float: right"
-                      (click)="openDialog()"
+                      (click)="openDialog(teacher)"
                     >
                       Réserver un essais
                     </button>
@@ -236,6 +241,8 @@
                 </div>
               </div>
             </div>
+          </div>
+          
           </div>
         </div>
       </div>

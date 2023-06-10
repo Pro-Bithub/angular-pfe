@@ -23,6 +23,14 @@ export class CoursService {
     const url = `${this.apiUrl}/cours/byidtutor/`+idtutor; // Ajoutez le chemin d'API spécifique, par exemple '/signup'
     return this.http.get(url);
   }
+  deleteCourse(id: Number) {
+    const url = `${this.apiUrl}/cours/`+id;// Remplacez l'URL par l'URL de votre API
   
+    return this.http.delete(url);
+  }
+  updateCourse(course: any): Observable<any> {
+    const url = `${this.apiUrl}/cours/${course.id}`; // Replace 'id' with the actual property name for the course ID
+    return this.http.put(url, course);
+  }
 
 }

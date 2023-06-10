@@ -17,7 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DashboardTutorRoutingModule } from './dashboard-tutor-routing.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TutorProfileComponent } from './tutor-profile/tutor-profile.component';
-import { Courgroupes } from './courgroupes/courgroupes.component';
+import { Courgroupes, EditCourseDialogComponent, detailsCourgroupesDialog } from './courgroupes/courgroupes.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CoursService } from './courgroupes/cours.service';
@@ -47,7 +47,7 @@ import { TransactionsService } from './transactions/Transactions.service';
     MatButtonModule,MatPaginatorModule,MatChipsModule,
     MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule,MatInputModule, MatCheckboxModule,NgxMaterialTimepickerModule
   ],
-  declarations: [TutorProfileComponent,Courgroupes,AddCourgroupe,Appointment,StatComponent,student,TutorComponent,TransactionsComponent],
+  declarations: [TutorProfileComponent,detailsCourgroupesDialog,EditCourseDialogComponent,Courgroupes,AddCourgroupe,Appointment,StatComponent,student,TutorComponent,TransactionsComponent],
   providers: [CoursService,AppointmentService,StudentService,TutorService,TransactionsService]
 })
 export class DashboardTutorModule {}

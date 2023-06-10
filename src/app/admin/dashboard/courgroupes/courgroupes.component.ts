@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { CoursService } from './cours.service';
 
 interface Place {
   imgSrc: string;
@@ -33,58 +34,28 @@ export class Courgroupes implements OnInit {
   selectedjour: string = '-- None --';
   selectedheure: string = '-- None --';
   value = 'Clear me';
-  constructor() {}
+  constructor(private  coursService: CoursService) {}
   ngOnInit() {
-    this.courgroupes = [
-      {
-        imgSrc: 'assets/images/card-1.jpg',
-        name: 'Cozy 5 Stars Apartment',
-        nameuser: `Rosalind Dott`,
-        prix: '899',
-        location: 'Barcelona, Spain',
-       date: '07:00 - 08:00 lundi, 15 mai 2023',
-       nbplacsrestantes:'5',
-       nbplactotale:'10',
-       description:'Rosalind Dott',
-       niveaux:'C1',
-       jour:'Lundi',
-       time:'07:00 - 08:00',
-       langues:'Français, Allemand, Italien'.split(', '),
-       id:1
-      },
-      {
-        imgSrc: 'assets/images/card-2.jpg',
-        name: 'Cozy 5 Stars Apartment',
-        nameuser: `Rosalind Dott`,
-        prix: '899',
-        location: 'Barcelona, Spain',
-       date: '07:00 - 08:00 lundi, 15 mai 2023',
-        nbplacsrestantes:'3',
-        nbplactotale:'10',
-        description:'Rosalind Dott',
-        niveaux:'C2',
-        jour:'Lundi',
-        time:'07:00 - 08:00',
-        langues:'Français, Allemand, Italien'.split(', '),
-        id:1
-      },
-      {
-        imgSrc: 'assets/images/card-3.jpg',
-        name: 'Cozy 5 Stars Apartment',
-        nameuser: `Rosalind Dott`,
-        prix: '899',
-        location: 'Barcelona, Spain',
-       date: '07:00 - 08:00 lundi, 15 mai 2023',
-        nbplacsrestantes:'10',
-        nbplactotale:'10',
-        description:'Rosalind Dott',
-        niveaux:'C2',
-        jour:'Lundi',
-        time:'07:00 - 08:00',
-        langues:'Français, Allemand, Italien'.split(', '),
-        id:1
-      }
-    ];
+    this.gettAllCour()
+  
     console.log( this.courgroupes )
   }
+
+  gettAllCour(){
+    this.coursService.gettAllCourse().subscribe(
+      response => {
+        // Traitement de la réponse du service après l'inscription réussie
+        this.courgroupes = response
+console.log( this.courgroupes)
+        // Effectuer d'autres actions telles que la redirection vers une page de connexion, afficher un message de succès, etc.
+      },
+      error => {
+        // Gérer les erreurs d'inscription
+        console.error('Erreur ', error);
+        // Afficher un message d'erreur ou prendre une autre action appropriée
+      }
+    );
+
+  }
+
 }

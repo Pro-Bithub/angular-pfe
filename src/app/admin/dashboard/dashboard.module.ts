@@ -23,6 +23,11 @@ import { GroupClassDetailComponent } from './group-class-detail/group-class-deta
 import { FilterTeachersPipe } from './teachers/filter-teachers.pipe';
 import { FilterCourGroupesPipe } from './courgroupes/filter-cours.pipe';
 import { MyTeachersComponent } from './myTeachers/myTeachers.component';
+import { TeachersService } from './teachers/teachers.service';
+import { CoursService } from './courgroupes/cours.service';
+import { ConfirmationDialogComponent } from './teachers/confirmation-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   imports: [
@@ -33,8 +38,9 @@ import { MyTeachersComponent } from './myTeachers/myTeachers.component';
     MatCardModule,
     MatTableModule,
     MatButtonModule,MatPaginatorModule,MatChipsModule,
-    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule
+    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule,MatSnackBarModule
   ],
-  declarations: [HomeComponent,Courgroupes,MyTeachersComponent,MyGroupCourses,Teachers,DialogContentExampleDialog,GroupClassDetailComponent,FilterTeachersPipe,FilterCourGroupesPipe]
+  declarations: [PaymentComponent,HomeComponent,Courgroupes,ConfirmationDialogComponent,MyTeachersComponent,MyGroupCourses,Teachers,DialogContentExampleDialog,GroupClassDetailComponent,FilterTeachersPipe,FilterCourGroupesPipe],
+  providers: [TeachersService,CoursService]
 })
 export class DashboardModule {}

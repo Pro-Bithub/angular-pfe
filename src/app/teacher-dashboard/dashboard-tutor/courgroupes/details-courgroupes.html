@@ -1,0 +1,19 @@
+
+<mat-dialog-content class="mat-typography">
+    <h2>Détails des Cours collectifs {{ course.titre }}</h2>
+    <p>Places disponibles: {{ course.placesDisponibles }}</p>
+    <p>Langue: {{ course.langue }}</p>
+    <p>Niveau: {{ course.niveau }}</p>
+    <p>Durée: {{ course.duree }}</p>
+    <p>Date: {{ course.date | date:'dd/MM/yyyy'}}</p>
+    <p>Description: {{ course.description }}</p>
+    <p>Prix: {{ course.prix }}</p>
+    <p>Horaire: {{ course.horaire }}</p>
+
+    <!-- Autres propriétés du profil du cours -->
+    
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Annule</button>
+
+</mat-dialog-actions>

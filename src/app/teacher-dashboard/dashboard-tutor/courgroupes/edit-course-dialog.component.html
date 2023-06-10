@@ -1,0 +1,74 @@
+<h2>Édition du cours {{ course.titre }}</h2>
+
+<form (submit)="saveChanges()">
+    <div>
+  <mat-form-field>
+    <mat-label for="titre">Titre du cours:</mat-label>
+    <input matInput type="text" id="titre" [(ngModel)]="course.titre" name="titre" required>
+  </mat-form-field>
+</div>
+<div>
+    
+  <mat-form-field>
+    <mat-label for="placesDisponibles">Places disponibles:</mat-label>
+    <input matInput type="number" id="placesDisponibles" [(ngModel)]="course.placesDisponibles" name="placesDisponibles" required>
+  </mat-form-field>
+</div>
+<div>
+    
+  <mat-form-field>
+    <mat-label for="langue">Langue:</mat-label>
+    <input matInput type="text" id="langue" [(ngModel)]="course.langue" name="langue" required>
+  </mat-form-field>
+</div>
+<div>
+    
+  <mat-form-field>
+    <mat-label for="niveau">Niveau:</mat-label>
+    <input matInput type="text" id="niveau" [(ngModel)]="course.niveau" name="niveau" required>
+  </mat-form-field>
+</div>
+<div>
+    
+  <mat-form-field>
+    <mat-label for="duree">Durée:</mat-label>
+    <input matInput type="text" id="duree" [(ngModel)]="course.duree" name="duree" required>
+  </mat-form-field>
+</div>
+<div>
+    
+  <mat-form-field>
+    <mat-label for="date">Date:</mat-label>
+    <input matInput type="date" id="date" [(ngModel)]="course.date" name="date" required>
+  </mat-form-field>
+</div>
+<div>
+    
+  <mat-form-field>
+    <mat-label for="description">Description:</mat-label>
+    <textarea matInput id="description" [(ngModel)]="course.description" name="description" required></textarea>
+  </mat-form-field>
+</div>
+<div>
+    
+  <mat-form-field>
+    <mat-label for="prix">Prix:</mat-label>
+    <input matInput type="number" id="prix" [(ngModel)]="course.prix" name="prix" required>
+  </mat-form-field>
+</div>
+<div>
+    
+  <mat-form-field>
+    <mat-label for="horaire">Horaire:</mat-label>
+    <input matInput type="text" id="horaire" [(ngModel)]="course.horaire" name="horaire" required>
+  </mat-form-field>
+</div>
+<div>
+    
+ 
+</div>
+
+  <!-- Autres champs du formulaire pour l'édition du cours -->
+
+  <button type="submit" mat-raised-button  color="primary">Enregistrer les modifications</button>
+</form>

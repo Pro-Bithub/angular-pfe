@@ -6,6 +6,7 @@ import { Teachers } from './teachers/teachers.component';
 import { MyGroupCourses } from './myGroupCourses/myGroupCourses.component';
 import { GroupClassDetailComponent } from './group-class-detail/group-class-detail.component';
 import { MyTeachersComponent } from './myTeachers/myTeachers.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {
@@ -22,15 +23,17 @@ const routes: Routes = [
   component: Teachers
 },
 {
-  path: 'my-group-courses',
+  path: 'my-appointments',
   component: MyGroupCourses
 },
 {
   path: 'my-teachers',
   component: MyTeachersComponent 
 },
-
-
+{
+  path: 'payment/:etudiantId/:idcours/:tutorId/:prix/:date/:iscours',
+  component: PaymentComponent
+}
 
 ];
 

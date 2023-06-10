@@ -161,6 +161,8 @@
     transition: color 50ms,background 50ms;
 }
 .styles_TimeSlotAvailable{
+  border: 1px solid transparent;
+  border-radius: 8px;
   color: #3bb3bd;
     cursor: pointer;
     font-weight: 500;
@@ -176,4 +178,9 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 22px;
+}
+.styles_TimeSlot:hover {
+  background: 0 0;
+  border-color: #3bb3bd;
+  color: #3bb3bd;
 }

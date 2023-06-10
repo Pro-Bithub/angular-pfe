@@ -1,7 +1,7 @@
 <h2 mat-dialog-title>Réserver un cours d'essai de 50 min</h2>
 <mat-dialog-content class="mat-typography">
    
-  <p>An app's components typically define many views, arranged hierarchically. Angular provides
+  <p style="    color: transparent;">An app's components typically define many views, arranged hierarchically. Angular provides
   the Router service to help you define navigation paths among views.</p>
 
 <div class="styles_TimetableWrapper">
@@ -12,146 +12,57 @@
           <button
             class="styles_NavButton__x6SQL Button_button__qXZ5J Button_outlined__1RdQI"
             data-qa-id="previous-timeslots"
+            (click)="goToPreviousWeek()"
           >
-            <svg
-              height="12"
-              viewBox="0 0 8 12"
-              width="8"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.268 5.854l4.293 4.292-1.415 1.415L.44 5.854 6.146.146l1.415 1.415z"
-              ></path>
-            </svg>
+            <!-- Previous button icon -->
           </button>
           <div class="styles_TimetableHeaderTextContainer">
-            mai 30–juin 5, 2023
+            {{ dateRange }}
           </div>
           <button
             class="styles_NavButton__x6SQL Button_button__qXZ5J Button_outlined__1RdQI"
             data-qa-id="next-timeslots"
+            (click)="goToNextWeek()"
           >
-            <svg
-              height="12"
-              viewBox="0 0 8 12"
-              width="8"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4.732 5.854L.44 1.56 1.854.146 7.56 5.854 1.854 11.56.439 10.146z"
-              ></path>
-            </svg>
+            <!-- Next button icon -->
           </button>
         </div>
-        <div class="styles_DaysHead">
-          <div class="styles_DayName styles_Day">
-            <div class="styles_DayHead">
-              <p class="styles_DayTitle__en8Z8">mar.</p>
-              <p class="styles_DayDate">30</p>
-            </div>
-          </div>
-          <div class="styles_DayName styles_Day">
-            <div class="styles_DayHead">
-              <p class="styles_DayTitle__en8Z8">mer.</p>
-              <p class="styles_DayDate">31</p>
-            </div>
-          </div>
-          <div class="styles_DayName styles_Day">
-            <div class="styles_DayHead">
-              <p class="styles_DayTitle__en8Z8">jeu.</p>
-              <p class="styles_DayDate">1</p>
-            </div>
-          </div>
-          <div class="styles_DayName styles_Day">
-            <div class="styles_DayHead">
-              <p class="styles_DayTitle__en8Z8">ven.</p>
-              <p class="styles_DayDate">2</p>
-            </div>
-          </div>
-          <div class="styles_DayName styles_Day">
-            <div class="styles_DayHead">
-              <p class="styles_DayTitle__en8Z8">sam.</p>
-              <p class="styles_DayDate">3</p>
-            </div>
-          </div>
-          <div class="styles_DayName styles_Day">
-            <div class="styles_DayHead">
-              <p class="styles_DayTitle__en8Z8">dim.</p>
-              <p class="styles_DayDate">4</p>
-            </div>
-          </div>
-          <div class="styles_DayName styles_Day">
-            <div class="styles_DayHead">
-              <p class="styles_DayTitle__en8Z8">lun.</p>
-              <p class="styles_DayDate">5</p>
-            </div>
+        <!-- Rest of the code -->
+      </div>
+      <div class="styles_DaysHead">
+        <div class="styles_DayName styles_Day" *ngFor="let day of daysData">
+          <div class="styles_DayHead">
+            <p class="styles_DayTitle__en8Z8">{{ day.day }}</p>
+            <p class="styles_DayDate">{{ day.date }}</p>
           </div>
         </div>
       </div>
+
       <div class="styles_Calendar">
-        <div class="styles_Day">
-          <div
+        <div class="styles_Day" *ngFor="let day of daysData">
+          <div *ngFor="let timeslot of day.timeslots"
+         
             data-qa-group="schedule-timeslots"
-            data-qa-id="timeslot-2023-05-30T09:00:00.000Z-mar."
-            data-enabled="true"
-            class="styles_TimeSlot styles_TimeSlotAvailable"
-          >
-            10:00
-          </div>
-          <div
-            data-qa-group="schedule-timeslots"
-            data-qa-id="timeslot-2023-05-30T09:30:00.000Z-mar."
-            data-enabled="true"
-            class="styles_TimeSlot styles_TimeSlotAvailable"
-          >
-            10:30
-          </div>
-          <div
-            data-qa-group="schedule-timeslots"
-            data-qa-id="timeslot-2023-05-30T10:00:00.000Z-mar."
-            data-enabled="true"
-            class="styles_TimeSlot styles_TimeSlotAvailable"
-          >
-            11:00
-          </div>
-          <div
-            data-qa-group="schedule-timeslots"
-            data-qa-id="timeslot-2023-05-30T10:30:00.000Z-mar."
-            data-enabled="true"
-            class="styles_TimeSlot styles_TimeSlotAvailable"
-          >
-            11:30
-          </div>
-          <div
-            data-qa-group="schedule-timeslots"
-            data-qa-id="timeslot-2023-05-30T11:00:00.000Z-mar."
-            data-enabled="true"
-            class="styles_TimeSlot styles_TimeSlotAvailable"
-          >
-            12:00
-          </div>
-          <div
-            data-qa-group="schedule-timeslots"
-            data-qa-id="timeslot-2023-05-30T11:30:00.000Z-mar."
-            data-enabled="true"
-            class="styles_TimeSlot styles_TimeSlotAvailable"
-          >
-            12:30
+            [attr.data-qa-id]="getDateQaId(day, timeslot)"
+        
+            class=" styles_TimeSlotAvailable"
+            [class.styles_TimeSlotAvailable]="selectedTimeslots.includes(getDateQaId(day, timeslot))"
+           >
+        <span  (click)="handleTimeslotClick(day, timeslot)">    {{ timeslot }}</span>
           </div>
         </div>
-        <div class="styles_Day"></div>
-        <div class="styles_Day"></div>
-        <div class="styles_Day"></div>
-        <div class="styles_Day"></div>
-        <div class="styles_Day"></div>
-        <div class="styles_Day"></div>
       </div>
+      
+      
+
+      
     </div>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
 <!--   <button mat-button mat-dialog-close>Cancel</button> -->
-  <button style="background: #25216a;
-  color: #FFF;
-  border-radius: 15px;" mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirmer l'heure</button>
+<button style="background: #25216a;
+color: #FFF;
+border-radius: 15px;" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="confirmReservation()" [disabled]="selectedTimeslots.length === 0">Confirmer l'heure</button>
+
 </mat-dialog-actions>

@@ -10,7 +10,93 @@
    
       <div class="col col-12">
  
-       Aucune professeurs trouvé
+        <ng-container *ngIf="favoriteTeachers.length === 0; else favoriteTeachersList">
+          Aucune professeur trouvé
+        </ng-container>
+        <ng-template #favoriteTeachersList>
+          <div class="col col-lg-12">
+            <mat-paginator
+              [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page"
+              #paginator
+            >
+            </mat-paginator>
+          </div>
+          <div class="col col-lg-12">
+            <div class="row">
+           
+              <div
+                class="col col-lg-4"
+                *ngFor="
+                  let teacher of favoriteTeachers
+                "
+              >
+    
+              <div class="card">
+                <div class="card-details"  style="    width: 428px;">
+                  <div class="row">
+                    <div class="col col-8">
+                      <mat-icon class="avatar-icon">person</mat-icon>
+                      <strong style="padding-right: 4px">{{
+                        teacher.nom
+                      }}</strong>
+                      <p
+                        class="font-light text-tiny"
+                        style="line-height: 18px; display: contents"
+                      >
+                        {{ teacher.nblecons }} leçons
+                      </p>
+                    </div>
+                    
+                  </div>
+    
+                  <mat-card-subtitle>{{ teacher.typedetuteur }}</mat-card-subtitle>
+                  <mat-card-subtitle
+                    >SPEAKS :
+                    <span *ngFor="let langue of teacher.languesparlees">
+                      {{ langue }}</span
+                    ></mat-card-subtitle
+                  >
+                  <p style="
+                  height: 40px;
+              ">
+                    {{ teacher.bilographie ? (teacher.bilographie | slice: 0:100) + (teacher.bilographie.length > 100 ? '...' : '') : '' }}
+                  </p>
+                  
+                  <div class="row">
+                    <div class="col col-3">
+                      <span class="text-info" style="font-size: 12px"
+                        >Disponible </span
+                      >
+                    </div>
+                    <div class="col col-9">
+                      <h5 style="float: right">
+                        USD {{ teacher.pricePerHour }}
+                        <mat-card-subtitle style="display: initial"
+                          >/ essai</mat-card-subtitle
+                        >
+                        <button
+                          mat-button
+                          class="btn-rs"
+                          style="float: right"
+                          (click)="openDialog()"
+                        >
+                          Réserver un essais
+                        </button>
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        
       </div>
    
     </div>

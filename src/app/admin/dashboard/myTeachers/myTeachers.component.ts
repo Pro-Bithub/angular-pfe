@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TeachersService } from '../teachers/teachers.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogContentExampleDialog } from '../teachers/teachers.component';
 
 interface Place {
   imgSrc: string;
@@ -14,35 +17,36 @@ interface Place {
   styleUrls: ['./myTeachers.component.scss']
 })
 export class MyTeachersComponent implements OnInit {
-  mygroupcours: Array<Place> = [];
-  constructor() {}
+  favoriteTeachers: Array<any> = [];
+  constructor(private  teachersService: TeachersService,public dialog: MatDialog) {}
   ngOnInit() {
-    this.mygroupcours = [
-      {
-        imgSrc: 'assets/images/card-1.jpg',
-        name: 'Cozy 5 Stars Apartment',
-        description: `The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio"
-              where you can enjoy the main night life in Barcelona.`,
-        charge: '$899/night',
-        location: 'Barcelona, Spain'
-      },
-      {
-        imgSrc: 'assets/images/card-2.jpg',
-        name: 'Office Studio',
-        description: `The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio"
-              where you can enjoy the night life in London, UK.`,
-        charge: '$1,119/night',
-        location: 'London, UK'
-      },
-      {
-        imgSrc: 'assets/images/card-3.jpg',
-        name: 'Beautiful Castle',
-        description: `The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio"
-              where you can enjoy the main night life in Milan.`,
-        charge: '$459/night',
-        location: 'Milan, Italy'
-      }
-    ];
-    console.log( this.mygroupcours )
+ // Remplacez par la logique pour obtenir l'ID de l'étudiant
+    this.loadFavoriteTeachers();
+  }
+  loadFavoriteTeachers() {
+    const etudiantData = JSON.parse(localStorage.getItem('etudiantData'));
+    if (!etudiantData || !etudiantData.id) {
+      return;
+    }
+    const etudiantId = etudiantData.id; 
+
+    this.teachersService.getFavoriteTeachers(etudiantId)
+      .subscribe(
+        (response) => {
+          this.favoriteTeachers = response;
+          // Traitez les tuteurs favoris de l'étudiant selon vos besoins
+        },
+        (error) => {
+          console.error('Erreur lors du chargement des tuteurs favoris:', error);
+          // Gérez le scénario d'erreur si nécessaire
+        }
+      );
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
