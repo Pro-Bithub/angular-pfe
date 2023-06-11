@@ -1,38 +1,33 @@
 <div class="container">
-  <div class="row">
+  <div class="row"  *ngIf="coursData">
     <div class="col col-8">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title
-            >Scams - how do they work? Why do people get involved in them? B1,
-            B2 Fun reading and discussion!</mat-card-title
-          >
-          <mat-card-subtitle>5 places restantes</mat-card-subtitle>
+          <mat-card-title *ngIf="coursData?.titre">{{ coursData.titre }}</mat-card-title>
+          <mat-card-subtitle >{{ coursData.placesDisponibles }} places restantes</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <mat-chip-list #chipList multiple="true">
-            <mat-chip> Anglais </mat-chip>
-            <mat-chip> B1 </mat-chip>
-            <mat-chip> 60 min </mat-chip>
-            <mat-chip> 6 places / cours </mat-chip>
+            <mat-chip *ngIf="coursData?.langue">{{ coursData.langue }}</mat-chip>
+            <mat-chip *ngIf="coursData?.niveau">{{ coursData.niveau }}</mat-chip>
+            <mat-chip *ngIf="coursData?.duree">{{ coursData.duree }} min</mat-chip>
           </mat-chip-list>
-          <span class="text-info" style="font-size: 12px"
-            >15:30 - 16:30 mardi, 16 mai 2023</span
-          >
-          <p>This card indeterminates progress bar.</p>
+          <span class="text-info" style="font-size: 12px" >
+            {{ getFormattedTimeString(startTime) }} - {{ getFormattedTimeString(endTime) }}
+            {{ coursData?.date | date:'EEEE, d MMMM yyyy' }}
+          </span>
+          <p *ngIf="coursData?.description">{{ coursData.description }}</p>
         </mat-card-content>
       </mat-card>
     </div>
     <div class="col col-3">
       <mat-card class="example-card">
-        <mat-card-header> </mat-card-header>
+        <mat-card-header></mat-card-header>
         <mat-card-content>
-          <mat-card-subtitle>COURS COLLECTIF </mat-card-subtitle>
-
-          <div>Outil de communication - Chatify</div>
-
-          <h5>$ 10.00 USD/class</h5>
-          <button mat-button class="btn-rs">Réserver</button>
+          <mat-card-subtitle>COURS COLLECTIF</mat-card-subtitle>
+          <div >Outil de communication - chatify</div>
+          <h5 *ngIf="coursData?.prix">$ {{ coursData.prix }} USD/class</h5>
+          <button mat-button class="btn-rs" (click)="redirectToPayment(coursData)">Réserver</button>
         </mat-card-content>
       </mat-card>
     </div>

@@ -31,7 +31,8 @@ import { student } from './student/student.component';
 import { TutorService } from './tutor.service';
 import { TutorComponent } from './tutor/tutor.component';
 import { TransactionsComponent } from './transactions/transactions.component';
-import { TransactionsService } from './transactions/Transactions.service';
+import { TransactionsService } from './transactions/transactions.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -44,7 +45,7 @@ import { TransactionsService } from './transactions/Transactions.service';
     MatCardModule,
     MatSidenavModule,
     MatTableModule,
-    MatButtonModule,MatPaginatorModule,MatChipsModule,
+    MatButtonModule,MatPaginatorModule,MatChipsModule,MatSnackBarModule,
     MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule,MatInputModule, MatCheckboxModule,NgxMaterialTimepickerModule
   ],
   declarations: [TutorProfileComponent,detailsCourgroupesDialog,EditCourseDialogComponent,Courgroupes,AddCourgroupe,Appointment,StatComponent,student,TutorComponent,TransactionsComponent],

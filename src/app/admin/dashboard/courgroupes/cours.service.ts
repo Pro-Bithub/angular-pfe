@@ -19,6 +19,10 @@ export class CoursService {
     const url = `${this.apiUrl}/cours/`; // Ajoutez le chemin d'API spécifique, par exemple '/signup'
     return this.http.get(url);
   }
+  getCoursDetails(idcours:string): Observable<any> {
+    const url = `${this.apiUrl}/cours/${idcours}`; // Ajoutez le chemin d'API spécifique, par exemple '/signup'
+    return this.http.get(url);
+  }
 
-
+  
 }

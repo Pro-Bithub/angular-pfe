@@ -17,7 +17,7 @@ const routes: Routes = [
   path: 'group-courses',
   component: Courgroupes
 },
-{ path: 'group-class/detail/:id', component: GroupClassDetailComponent },
+{ path: 'group-class/detail/:idcours', component: GroupClassDetailComponent },
 {
   path: 'teachers',
   component: Teachers
