@@ -47,6 +47,7 @@ export class MyGroupCourses implements OnInit {
           // Traiter les rendez-vous récupérés comme nécessaire
         },
         error => {
+          this. rendezVous = [];
           console.error('Failed to retrieve rendez-vous:', error);
           // Gérer l'erreur et afficher un message d'erreur
         }

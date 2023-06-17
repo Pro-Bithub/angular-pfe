@@ -11,6 +11,9 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { MatSelectModule } from '@angular/material/select';
+import { LoginloginadminComponent } from './loginadmin/loginadmin.component';
+import { LoginadminService } from './loginadmin/loginadmin.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -20,9 +23,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
-    LoginRoutingModule, MatSelectModule
+    LoginRoutingModule, MatSelectModule,MatSnackBarModule
+ 
   ],
-  declarations: [LoginComponent],
-  providers: [LoginService]
+  declarations: [LoginComponent,LoginloginadminComponent],
+  providers: [LoginService,LoginadminService]
 })
 export class LoginModule {}

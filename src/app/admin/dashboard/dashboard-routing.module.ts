@@ -7,7 +7,8 @@ import { MyGroupCourses } from './myGroupCourses/myGroupCourses.component';
 import { GroupClassDetailComponent } from './group-class-detail/group-class-detail.component';
 import { MyTeachersComponent } from './myTeachers/myTeachers.component';
 import { PaymentComponent } from './payment/payment.component';
-
+import { AuthGuard } from '../../core/auth.guard';
+import { EtudiantProfileComponent } from './etudiant-profile/etudiant-profile.component';
 const routes: Routes = [
   {
     path: '',
@@ -24,7 +25,7 @@ const routes: Routes = [
 },
 {
   path: 'my-appointments',
-  component: MyGroupCourses
+  component: MyGroupCourses ,canActivate: [AuthGuard] 
 },
 {
   path: 'my-teachers',
@@ -32,9 +33,9 @@ const routes: Routes = [
 },
 {
   path: 'payment/:etudiantId/:idcours/:tutorId/:prix/:date/:iscours',
-  component: PaymentComponent
-}
-
+  component: PaymentComponent,canActivate: [AuthGuard] 
+},
+{ path: 'etudiant-profile', component: EtudiantProfileComponent ,canActivate: [AuthGuard]  },
 ];
 
 @NgModule({

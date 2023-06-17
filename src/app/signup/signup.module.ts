@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { SignupService } from './signup/signup.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { SignupService } from './signup/signup.service';
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
-    SignupRoutingModule
+    SignupRoutingModule,MatSnackBarModule
   ],
   declarations: [SignupComponent],
   providers: [SignupService]

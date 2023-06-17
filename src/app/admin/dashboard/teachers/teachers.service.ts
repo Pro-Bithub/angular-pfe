@@ -50,5 +50,10 @@ export class TeachersService {
     const url = `${this.apiUrl}/tuteurs/rendezvous/${etudiantId}`;
     return this.http.get<any[]>(url);
   }
+  modifyEtudiant(userData: any): Observable<any> {
+    const url = `${this.apiUrl}/etudiants/modify`; // Ajoutez le chemin d'API spécifique, par exemple '/signup'
+    return this.http.post(url, userData);
+  }
+  
 
 }

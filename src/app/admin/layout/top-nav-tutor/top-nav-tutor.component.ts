@@ -19,9 +19,10 @@ export class TopNavTutorComponent implements OnInit {
 
   onLoggedout() {
 
-
     localStorage.removeItem('isLoggedin');
     localStorage.removeItem("tuteurData");
+    localStorage.removeItem("etudiantData");
+    localStorage.removeItem('adminData' );
     this.router.navigate(['/login']);
   }
 }

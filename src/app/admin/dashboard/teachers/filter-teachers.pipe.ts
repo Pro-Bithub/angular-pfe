@@ -4,26 +4,21 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filterTeachers'
 })
 export class FilterTeachersPipe implements PipeTransform {
-  transform(teachers: any[], language: string, categorie: string[], heure: string[], type: string): any[] {
+  transform(teachers: any[], language: string, categorie: string[], type: string): any[] {
     if (!teachers) return [];
-    
-    // Filtre par langue
+    console.log(teachers)
+      // Filtre par langue
     if (language && language !== '-- None --') {
-      teachers = teachers.filter(teacher => teacher.langues.includes(language));
+      teachers = teachers.filter(teacher => teacher.languesparlees && teacher.languesparlees.includes(language));
     }
+
     
     // Filtre par type de professeur
     if (type && type !== 'Le deux') {
-        teachers = teachers.filter(teacher => teacher.typetuteur === type);
+        teachers = teachers.filter(teacher => teacher.typedetuteur === type);
       } 
       
 
-       // Filtre par heure de la leçon
-    if (heure && heure.length > 0) {
-        if(!heure.includes("-- None --")){
-        teachers = teachers.filter(teacher =>heure.includes(teacher.time));
-        }
-      }
 
       
   // Filtre par catégorie de leçon

@@ -7,36 +7,38 @@ import { Appointment } from './appointment/appointment.component';
 import { student } from './student/student.component';
 import { TutorComponent } from './tutor/tutor.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { AdminauthGuard } from 'src/app/core/Adminauth.guard';
+import { TutorAuthGuard } from 'src/app/core/tutorauth.guard';
 
 
 const routes: Routes = [
   {
     path: 'cours',
-    component: Courgroupes
+    component: Courgroupes ,canActivate: [TutorAuthGuard] 
 },
 {
   path: 'add-course',
-  component: AddCourgroupe
+  component: AddCourgroupe  ,canActivate: [TutorAuthGuard] 
 },
 {
   path: 'appointment',
-  component: Appointment
+  component: Appointment  ,canActivate: [TutorAuthGuard]  
 },
 {
   path: 'student',
-  component: student
+  component: student ,canActivate: [AdminauthGuard] 
 },
 {
   path: 'tutor',
-  component: TutorComponent
+  component: TutorComponent ,canActivate: [AdminauthGuard] 
 },
 {
   path: 'transactions',
-  component: TransactionsComponent
+  component: TransactionsComponent ,canActivate: [AdminauthGuard] 
 },
 
 
-{ path: 'tutor-profile', component: TutorProfileComponent },
+{ path: 'tutor-profile', component: TutorProfileComponent ,canActivate: [TutorAuthGuard]  },
 
 
 ];

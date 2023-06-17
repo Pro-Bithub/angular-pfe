@@ -28,6 +28,11 @@ import { CoursService } from './courgroupes/cours.service';
 import { ConfirmationDialogComponent } from './teachers/confirmation-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PaymentComponent } from './payment/payment.component';
+import { EtudiantProfileComponent } from './etudiant-profile/etudiant-profile.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+
 
 @NgModule({
   imports: [
@@ -38,9 +43,9 @@ import { PaymentComponent } from './payment/payment.component';
     MatCardModule,
     MatTableModule,
     MatButtonModule,MatPaginatorModule,MatChipsModule,
-    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule,MatSnackBarModule
+    MatIconModule,MatFormFieldModule,MatSelectModule,FormsModule,MatDialogModule,MatSnackBarModule,MatInputModule, MatCheckboxModule,NgxMaterialTimepickerModule
   ],
-  declarations: [PaymentComponent,HomeComponent,Courgroupes,ConfirmationDialogComponent,MyTeachersComponent,MyGroupCourses,Teachers,DialogContentExampleDialog,GroupClassDetailComponent,FilterTeachersPipe,FilterCourGroupesPipe],
+  declarations: [EtudiantProfileComponent,PaymentComponent,HomeComponent,Courgroupes,ConfirmationDialogComponent,MyTeachersComponent,MyGroupCourses,Teachers,DialogContentExampleDialog,GroupClassDetailComponent,FilterTeachersPipe,FilterCourGroupesPipe],
   providers: [TeachersService,CoursService]
 })
 export class DashboardModule {}

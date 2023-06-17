@@ -19,7 +19,24 @@ export class TopNavComponent implements OnInit {
 
   onLoggedout() {
     localStorage.removeItem('isLoggedin');
+    localStorage.removeItem("tuteurData");
     localStorage.removeItem("etudiantData");
+    localStorage.removeItem('adminData' );
     this.router.navigate(['/login']);
   }
+
+  isConnected(): boolean {
+    const adminData = localStorage.getItem('adminData');
+    const TutorData = localStorage.getItem('tuteurData');
+    const etudiantData = localStorage.getItem('etudiantData');
+    return !!adminData ||  !!TutorData || !!etudiantData ; 
+  }
+  isEtudiantLoggedIn(): boolean {
+    const etudiantData = localStorage.getItem('etudiantData');
+    return  !!etudiantData ; 
+  }
+
+  
+
+  
 }

@@ -1,0 +1,39 @@
+
+<div class="wrapper">
+  <div class="formcenter">
+    <div class="formWrapper">
+      <h1 class="title">Chatify - interface admin</h1>
+
+      <form class="login-form" #myForm="ngForm" (ngSubmit)="onLogin()">
+   
+        <div fxLayout="row">
+          <div fxFlexFill>
+            <mat-form-field class="w-100">
+              <input matInput placeholder="Email" name="email" [(ngModel)]="email" required/>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput type="password" placeholder="Mot de passe" name="motdepasse" [(ngModel)]="motdepasse" required/>
+            </mat-form-field>
+
+
+      
+
+         
+          </div>
+        </div>
+     
+        <div fxLayout="row">
+          <div fxFlexFill>
+            <button type="submit" mat-raised-button class="w-100 mat-button" style="background-color: #36309c; color: #FFF;">
+              Se connecter
+            </button>
+            
+         
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="background"></div>
+</div>

@@ -12,4 +12,13 @@ export class SideNavComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  isAdminLoggedIn(): boolean {
+    const adminData = localStorage.getItem('adminData');
+    return !!adminData;
+  }
+
+  isTutorLoggedIn(): boolean {
+    const TutorData = localStorage.getItem('tuteurData');
+    return !!TutorData;
+  }
 }

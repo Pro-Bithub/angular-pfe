@@ -5,6 +5,7 @@
   mat-list-item
   [routerLinkActive]="'active'"
   routerLink="/fr/dashboard-tutor/tutor"
+  *ngIf="isAdminLoggedIn()"
 >
   <mat-icon class="sidenav-icon">people</mat-icon>
 Tuteurs 
@@ -14,6 +15,7 @@ Tuteurs
   mat-list-item
   [routerLinkActive]="'active'"
   routerLink="/fr/dashboard-tutor/student"
+  *ngIf="isAdminLoggedIn()"
 >
   <mat-icon class="sidenav-icon">person</mat-icon>
  étudiants 
@@ -21,7 +23,7 @@ Tuteurs
   <a
     mat-list-item
     [routerLinkActive]="'active'"
-    routerLink="/fr/dashboard-tutor/cours"
+    routerLink="/fr/dashboard-tutor/cours" *ngIf="isTutorLoggedIn()"  
   >
     <mat-icon class="sidenav-icon">class</mat-icon>
    Cours collectifs 
@@ -30,6 +32,7 @@ Tuteurs
     mat-list-item
     [routerLinkActive]="'active'"
     routerLink="/fr/dashboard-tutor/transactions"
+    *ngIf="isAdminLoggedIn()" 
   >
     <mat-icon class="sidenav-icon">attach_money</mat-icon>
     transactions
@@ -39,7 +42,7 @@ Tuteurs
   <a
     mat-list-item
     [routerLinkActive]="'active'"
-    routerLink="/fr/dashboard-tutor/appointment"
+    routerLink="/fr/dashboard-tutor/appointment" *ngIf="isTutorLoggedIn()"  
   >
     <mat-icon class="sidenav-icon">event</mat-icon>
    Rendez vous
@@ -47,7 +50,7 @@ Tuteurs
   <a
   mat-list-item
   [routerLinkActive]="'active'"
-  routerLink="/fr/dashboard-tutor/tutor-profile"
+  routerLink="/fr/dashboard-tutor/tutor-profile" *ngIf="isTutorLoggedIn()"  
 >
   <mat-icon class="sidenav-icon">settings</mat-icon>
   Modifier mon profil

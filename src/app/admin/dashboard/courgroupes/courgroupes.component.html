@@ -82,10 +82,10 @@
       <mat-label>Heure</mat-label>
       <mat-select [(ngModel)]="selectedheure">
         <mat-option>-- None --</mat-option>
-        <mat-option value="07:00 - 08:00">Matinée</mat-option>
+        <mat-option value="07:00 - 11:00">Matinée</mat-option>
         <mat-option value="12:00 - 16:00">Après-midi</mat-option>
-        <mat-option value="16:00 - 20:00">Soirée</mat-option>
-   
+        <mat-option value="17:00 - 23:00">Soirée</mat-option>
+        <mat-option value="00:00 - 06:00">Nuit</mat-option>
       </mat-select>
     </mat-form-field>
     
@@ -110,12 +110,12 @@
         >
         <div class="card">
           <div class="card-details" style="    width: 428px;">
-            <img mat-card-image src="assets/images/card-1.jpg">
+            <img mat-card-image src="../../../../assets/images/cours.svg">
             <div class="row">
               <div class="col col-8">
-                <p style="    margin: 0px;">  Cours collectif avec  {{courgroupe.nameuser}}</p>
+                <p style="    margin: 0px;">  Cours collectif avec  {{courgroupe.nom}}</p>
                 <strong> {{courgroupe.titre}}</strong>
-                <p>{{courgroupe.date | date:'dd/MM/yyyy'}} </p>
+                <p>{{courgroupe.date | date:'dd/MM/yyyy'}} à {{courgroupe.horaire}}   </p>
                 <button mat-button><h5> USD {{courgroupe.prix}}</h5></button>
                 <button mat-button >
                   <mat-chip
