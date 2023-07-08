@@ -23,12 +23,13 @@ export class MyGroupCourses implements OnInit {
   }
 
   organizeMeeting(onerendezVous: any) {
-    // Effectuez les actions nécessaires pour organiser une réunion avec le rendez-vous spécifique
-    // par exemple, rediriger l'utilisateur vers une page de planification de réunion ou afficher une boîte de dialogue, etc.
-    // Vous pouvez accéder aux données du rendez-vous via la variable onerendezVous
+    if (onerendezVous.statut === 'Confirmé') {
+      // Ouvrir une nouvelle fenêtre avec l'URL de Google Meet
+      window.open('https://meet.google.com/', '_blank'); // Remplacez cet URL par l'URL de Google Meet
   
-    // Exemple de redirection vers une page de planification de réunion avec l'ID du rendez-vous
-  /*   this.router.navigate(['/schedule-meeting'], { queryParams: { rendezVousId: onerendezVous.id } }); */
+      // Vous pouvez également passer des paramètres supplémentaires dans l'URL, par exemple l'ID du rendez-vous
+      // window.open(`https://meet.google.com/?rendezVousId=${onerendezVous.id}`, '_blank');
+    }
   }
   
 

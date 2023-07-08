@@ -86,7 +86,10 @@
                 <div class="col col-lg-10">
                   <span class="leaderboard__name">
                     {{ onerendezVous.nom_tuteur }} - Rendez-vous le
-                    {{ onerendezVous.date | date : "dd/MM/yyyy HH:mm" }}
+                    {{ onerendezVous.date | date : "dd/MM/yyyy HH:mm" }}    <span *ngIf="onerendezVous.statut === 'Confirmé'">
+                      <i class="fa fa-check-circle" style="color: #35d8ac"></i>
+                      Confirmé 
+                    </span>
                   </span>
                 </div>
                 <div class="col col-lg-6">
@@ -121,7 +124,7 @@
                 </span>
                 <span *ngIf="onerendezVous.statut === 'Confirmé'">
                   <i class="fa fa-check-circle" style="color: #35d8ac"></i>
-                  Confirmé Organiser une réunion
+                  Organiser une réunion
                 </span>
               </button>
             </article>
